@@ -23,6 +23,12 @@
 
 -(void)renderInScene:(EEScene *)scene
 {
+    //turn alpha transparencies in pngs on, otherwise alpha displayed black
+    //check out this link for more info on GL transparencies:
+    //http://www.opengl.org/archives/resources/faq/technical/transparency.htm
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
     //we shouldn't be creating this every render update
     GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
     
@@ -58,17 +64,21 @@
         glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, 0, self.vertexColors);
     }
     
-    
+    //draw the GL arrays for the shape, and use the Fan Style
     glDrawArrays(GL_TRIANGLE_FAN, 0, self.numVertices);
     
     glDisableVertexAttribArray(GLKVertexAttribPosition);
     
+    //tare down code
     //need to disable at the end of the render
     if (!useConstantColor)
         glDisableVertexAttribArray(GLKVertexAttribColor);
     
     if (texture != nil)
         glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+    
+    //disable glBlend for transparencies
+    glDisable(GL_BLEND);
 }
 
 //we can store color data individually on each vertex and GL will extrapolate the colors inbetween

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3C69616613FAC12600540465"
-               BuildableName = "ExampleEngine.app"
+               BuildableName = "DS-OpenGL-Wrapper.app"
                BlueprintName = "DS-OpenGL-Wrapper"
                ReferencedContainer = "container:DS-OpenGL-Wrapper.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3C69616613FAC12600540465"
-            BuildableName = "ExampleEngine.app"
+            BuildableName = "DS-OpenGL-Wrapper.app"
             BlueprintName = "DS-OpenGL-Wrapper"
             ReferencedContainer = "container:DS-OpenGL-Wrapper.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3C69616613FAC12600540465"
-            BuildableName = "ExampleEngine.app"
+            BuildableName = "DS-OpenGL-Wrapper.app"
             BlueprintName = "DS-OpenGL-Wrapper"
             ReferencedContainer = "container:DS-OpenGL-Wrapper.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3C69616613FAC12600540465"
-            BuildableName = "ExampleEngine.app"
+            BuildableName = "DS-OpenGL-Wrapper.app"
             BlueprintName = "DS-OpenGL-Wrapper"
             ReferencedContainer = "container:DS-OpenGL-Wrapper.xcodeproj">
          </BuildableReference>
