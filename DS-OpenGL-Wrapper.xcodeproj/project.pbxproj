@@ -27,6 +27,7 @@
 		27A8D62516DEAC3D002EC721 /* EESprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62416DEAC3D002EC721 /* EESprite.m */; };
 		27A8D62716DEAD1B002EC721 /* boy-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D62616DEAD1B002EC721 /* boy-sprite.png */; };
 		27A8D62A16DEAD46002EC721 /* SpriteScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62916DEAD46002EC721 /* SpriteScene.m */; };
+		27A8D62D16DEC354002EC721 /* TreeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62C16DEC354002EC721 /* TreeScene.m */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -75,6 +76,8 @@
 		27A8D62616DEAD1B002EC721 /* boy-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boy-sprite.png"; path = "Assets/images/boy-sprite.png"; sourceTree = "<group>"; };
 		27A8D62816DEAD45002EC721 /* SpriteScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteScene.h; sourceTree = "<group>"; };
 		27A8D62916DEAD46002EC721 /* SpriteScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteScene.m; sourceTree = "<group>"; };
+		27A8D62B16DEC353002EC721 /* TreeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeScene.h; sourceTree = "<group>"; };
+		27A8D62C16DEC354002EC721 /* TreeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeScene.m; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				27A8D61516DEA5F1002EC721 /* EquilateralTriangleScene.m */,
 				27A8D62816DEAD45002EC721 /* SpriteScene.h */,
 				27A8D62916DEAD46002EC721 /* SpriteScene.m */,
+				27A8D62B16DEC353002EC721 /* TreeScene.h */,
+				27A8D62C16DEC354002EC721 /* TreeScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				27A8D61616DEA5F2002EC721 /* EquilateralTriangleScene.m in Sources */,
 				27A8D62516DEAC3D002EC721 /* EESprite.m in Sources */,
 				27A8D62A16DEAD46002EC721 /* SpriteScene.m in Sources */,
+				27A8D62D16DEC354002EC721 /* TreeScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

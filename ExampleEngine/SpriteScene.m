@@ -7,6 +7,7 @@
 //
 
 #import "SpriteScene.h"
+#import "Constants.h"
 
 @implementation SpriteScene
 -(id)init
@@ -14,6 +15,9 @@
     self = [super init];
     if (self) {
         sprite = [[EESprite alloc] initWithImage:[UIImage imageNamed:@"boy-sprite.png"] pointRatio:100];
+        sprite.position = GLKVector2Make(2,-1);
+        sprite.rotation = 0.25*M_TAU;
+        sprite.scale = GLKVector2Make(0.5, 1.5);
     }
     return self;
 }
