@@ -32,8 +32,11 @@
 {
     GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
     effect.transform.projectionMatrix = scene.projectionMatrix;
+    
+    //color
     effect.useConstantColor = YES;
     effect.constantColor = color;
+    
     [effect prepareToDraw];
     
     [self render];
