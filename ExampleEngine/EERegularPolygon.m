@@ -50,7 +50,7 @@
 -(void)randomUpdateVerts
 {
     for (int i = 0; i < numSides; i++){
-        float theta = ((CGFloat)(rand()%100)/10);//arc4random() % 74;
+        float theta = ((CGFloat)(rand()%100)/10);
         self.vertices[i] = GLKVector2Make(cos(theta)*radius, sin(theta)*radius);
     }
 }
