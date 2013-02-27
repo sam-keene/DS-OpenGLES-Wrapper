@@ -18,6 +18,8 @@
 		27A8D5EB16DD679A002EC721 /* EEElipseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5EA16DD679A002EC721 /* EEElipseScene.m */; };
 		27A8D5EE16DD6922002EC721 /* EERegularPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */; };
 		27A8D5F116DD69C6002EC721 /* RegularPolygonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */; };
+		27A8D60716DE975A002EC721 /* landscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D60616DE975A002EC721 /* landscape.jpg */; };
+		27A8D60A16DE9D48002EC721 /* LandscapeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D60916DE9D48002EC721 /* LandscapeScene.m */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -51,6 +53,9 @@
 		27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EERegularPolygon.m; sourceTree = "<group>"; };
 		27A8D5EF16DD69C5002EC721 /* RegularPolygonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularPolygonScene.h; sourceTree = "<group>"; };
 		27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularPolygonScene.m; sourceTree = "<group>"; };
+		27A8D60616DE975A002EC721 /* landscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = landscape.jpg; path = Assets/images/landscape.jpg; sourceTree = "<group>"; };
+		27A8D60816DE9D47002EC721 /* LandscapeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeScene.h; sourceTree = "<group>"; };
+		27A8D60916DE9D48002EC721 /* LandscapeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeScene.m; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +99,8 @@
 				27A8D5EA16DD679A002EC721 /* EEElipseScene.m */,
 				27A8D5EF16DD69C5002EC721 /* RegularPolygonScene.h */,
 				27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */,
+				27A8D60816DE9D47002EC721 /* LandscapeScene.h */,
+				27A8D60916DE9D48002EC721 /* LandscapeScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -113,6 +120,14 @@
 				27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */,
 			);
 			name = Shapes;
+			sourceTree = "<group>";
+		};
+		27A8D60516DE9740002EC721 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D60616DE975A002EC721 /* landscape.jpg */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 		3C69615C13FAC12600540465 = {
@@ -148,6 +163,7 @@
 		3C69616F13FAC12600540465 /* ExampleEngine */ = {
 			isa = PBXGroup;
 			children = (
+				27A8D60516DE9740002EC721 /* assets */,
 				27A8D5F216DD6A22002EC721 /* Shapes */,
 				27A8D5CD16DD55C4002EC721 /* Scenes */,
 				3C69617813FAC12600540465 /* EEAppDelegate.h */,
@@ -222,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C69617413FAC12600540465 /* InfoPlist.strings in Resources */,
+				27A8D60716DE975A002EC721 /* landscape.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +262,7 @@
 				27A8D5EB16DD679A002EC721 /* EEElipseScene.m in Sources */,
 				27A8D5EE16DD6922002EC721 /* EERegularPolygon.m in Sources */,
 				27A8D5F116DD69C6002EC721 /* RegularPolygonScene.m in Sources */,
+				27A8D60A16DE9D48002EC721 /* LandscapeScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
