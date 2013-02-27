@@ -98,6 +98,7 @@
     if (error) {
         NSLog(@"Error loading texture from image: %@",error);
     }
+    NSLog(@"*** setting texture");
 }
 
 /*
