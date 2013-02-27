@@ -21,7 +21,7 @@
 
 -(void)update
 {
-    //[polygon randomUpdateVerts];
+    [polygon randomUpdateVerts];
 }
 
 -(void)render
