@@ -13,12 +13,21 @@
 @interface EEShape : NSObject
 {
     NSMutableData *vertexData;
+    NSMutableData *vertexColorData;
+    NSMutableData *textureCoordinateData;
     GLKVector4 color;
+    GLKTextureInfo *texture;
+    BOOL useConstantColor;
 }
--(void)render;
+
+@property BOOL useConstantColor;
 @property(readonly) int numVertices;
 @property(readonly) GLKVector2 *vertices;
+@property(readonly) GLKVector4 *vertexColors;
 @property GLKVector4 color;
+@property(readonly) GLKVector2 *textureCoordinates;
+
 -(void)renderInScene:(EEScene *)scene;
+-(void)setTextureImage:(UIImage *)image;
 
 @end
