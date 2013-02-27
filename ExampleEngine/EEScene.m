@@ -10,8 +10,15 @@
 
 @implementation EEScene
 
-@synthesize clearColor;
-@synthesize left, right, bottom, top;
+@synthesize left, right, bottom, top, shapes, clearColor;
+
+-(id)init {
+    self = [super init];
+    if (self) {
+        shapes = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 -(void)update
 {
@@ -23,9 +30,7 @@
     glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    //effect = [[GLKBaseEffect alloc] init];
-    //effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
-    //[effect prepareToDraw];
+    [shapes makeObjectsPerformSelector:@selector(renderInScene:) withObject:self];
 }
 
 -(GLKMatrix4)projectionMatrix

@@ -9,7 +9,30 @@
 #import "EEShape.h"
 
 @implementation EEShape
-@synthesize color, useConstantColor;
+@synthesize color, useConstantColor, position, rotation, scale;
+
+//set the defaults
+-(id)init {
+    self = [super init];
+    if (self) {
+        // Draw with the color white
+        useConstantColor = YES;
+        color = GLKVector4Make(1,1,1,1);
+        
+        // No texture
+        texture = nil;
+        
+        // Center on the origin
+        position = GLKVector2Make(0,0);
+        
+        // Don't rotate
+        rotation = 0;
+        
+        // Scale to original size
+        scale = GLKVector2Make(1,1);
+    }
+    return self;
+}
 
 -(int)numVertices {
     return 0;
@@ -23,8 +46,25 @@
 
 -(void)renderInScene:(EEScene *)scene
 {
+    //enable transparency
+    //check out this link for more info on GL transparencies:
+    //http://www.opengl.org/archives/resources/faq/technical/transparency.htm
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
     //we shouldn't be creating this every render update
     GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
+    
+    //set positional data for the "world space", as opposed to object space
+    //we can only have one modelview matrix per object, so use GLKMatrix4Multiply to combine into a single matrix.
+    //these happen in order, so changing their order will change the outcome
+    // effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, 0);
+    GLKMatrix4 modelviewMatrix =
+    GLKMatrix4Multiply(GLKMatrix4MakeTranslation(position.x, position.y, 0),
+                       GLKMatrix4MakeRotation(rotation, 0, 0, 1));
+    modelviewMatrix = GLKMatrix4Multiply(modelviewMatrix,
+                                         GLKMatrix4MakeScale(scale.x, scale.y, 1));
+    effect.transform.modelviewMatrix = modelviewMatrix;
     
     //use constant color, or "Flat, solid color"
     if (useConstantColor) {
@@ -32,7 +72,7 @@
         effect.constantColor = color;
     }
     
-    //configure GLKBaseEffect to handle the texture if there is one
+    //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
     if (texture != nil) {
         effect.texture2d0.envMode = GLKTextureEnvModeReplace;
         effect.texture2d0.target = GLKTextureTarget2D;
@@ -40,35 +80,45 @@
     }
     
     //enable the texture data and send it to GL in the same ways as for colors and positions
+    //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
     if (texture != nil) {
         glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
         glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, 0, self.textureCoordinates);
     }
     
+    // Set up the projection matrix to fit the scene's boundaries
     effect.transform.projectionMatrix = scene.projectionMatrix;
+    
+    // Tell OpenGL that we're going to use this effect for our upcoming drawing
     [effect prepareToDraw];
     
-    //GL rendery stuff
+    // Tell OpenGL that we'll be using vertex position data
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, 0, self.vertices);
     
     //use vertex color, so GL interpollates colors as gradients between verticies
+    // If we're using vertex coloring, tell OpenGL that we'll be using vertex color data
     if (!useConstantColor) {
         glEnableVertexAttribArray(GLKVertexAttribColor);
         glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, 0, self.vertexColors);
     }
     
-    
+    //// Draw our primitives!, draw the GL arrays for the shape, and use the Fan Style
     glDrawArrays(GL_TRIANGLE_FAN, 0, self.numVertices);
     
+    // Cleanup: Done with position data
     glDisableVertexAttribArray(GLKVertexAttribPosition);
     
-    //need to disable at the end of the render
+    // Cleanup: Done with color data (only if we used it)r
     if (!useConstantColor)
         glDisableVertexAttribArray(GLKVertexAttribColor);
     
+    // Cleanup: Done with texture data (only if we used it)
     if (texture != nil)
         glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+    
+    //disable glBlend for transparencies
+    glDisable(GL_BLEND);
 }
 
 //we can store color data individually on each vertex and GL will extrapolate the colors inbetween

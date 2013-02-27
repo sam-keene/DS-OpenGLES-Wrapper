@@ -17,15 +17,21 @@
     NSMutableData *textureCoordinateData;
     GLKVector4 color;
     GLKTextureInfo *texture;
+    GLKVector2 position;
+    GLKVector2 scale;
+    float rotation;
     BOOL useConstantColor;
 }
 
+@property float rotation;
 @property BOOL useConstantColor;
 @property(readonly) int numVertices;
 @property(readonly) GLKVector2 *vertices;
 @property(readonly) GLKVector4 *vertexColors;
-@property GLKVector4 color;
 @property(readonly) GLKVector2 *textureCoordinates;
+@property GLKVector2 scale;
+@property GLKVector4 color;
+@property GLKVector2 position;
 
 -(void)renderInScene:(EEScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
