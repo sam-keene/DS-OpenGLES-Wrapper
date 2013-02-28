@@ -37,8 +37,6 @@
     scene.bottom = -2;
     scene.top    =  2;
     
-    
-    
   return YES;
 }
 

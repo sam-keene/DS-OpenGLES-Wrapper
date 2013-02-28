@@ -233,6 +233,22 @@
 			name = Operations;
 			sourceTree = "<group>";
 		};
+		27A8D66216E00A95002EC721 /* DS-GL-Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D5D416DD5A96002EC721 /* EESceneController.h */,
+				27A8D5D516DD5A96002EC721 /* EESceneController.m */,
+				27A8D62316DEAC3D002EC721 /* EESprite.h */,
+				27A8D62416DEAC3D002EC721 /* EESprite.m */,
+				27A8D64916DFEBEA002EC721 /* Operations */,
+				27A8D60E16DEA333002EC721 /* Helpers */,
+				27A8D60516DE9740002EC721 /* assets */,
+				27A8D5F216DD6A22002EC721 /* Shapes */,
+				27A8D5CD16DD55C4002EC721 /* Scenes */,
+			);
+			name = "DS-GL-Wrapper";
+			sourceTree = "<group>";
+		};
 		3C69615C13FAC12600540465 = {
 			isa = PBXGroup;
 			children = (
@@ -266,18 +282,10 @@
 		3C69616F13FAC12600540465 /* ExampleEngine */ = {
 			isa = PBXGroup;
 			children = (
-				27A8D64916DFEBEA002EC721 /* Operations */,
-				27A8D60E16DEA333002EC721 /* Helpers */,
-				27A8D60516DE9740002EC721 /* assets */,
-				27A8D5F216DD6A22002EC721 /* Shapes */,
-				27A8D5CD16DD55C4002EC721 /* Scenes */,
+				27A8D66216E00A95002EC721 /* DS-GL-Wrapper */,
 				3C69617813FAC12600540465 /* EEAppDelegate.h */,
 				3C69617913FAC12600540465 /* EEAppDelegate.m */,
 				3C69617013FAC12600540465 /* Supporting Files */,
-				27A8D5D416DD5A96002EC721 /* EESceneController.h */,
-				27A8D5D516DD5A96002EC721 /* EESceneController.m */,
-				27A8D62316DEAC3D002EC721 /* EESprite.h */,
-				27A8D62416DEAC3D002EC721 /* EESprite.m */,
 			);
 			path = ExampleEngine;
 			sourceTree = "<group>";
