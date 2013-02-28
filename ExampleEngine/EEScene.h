@@ -23,5 +23,5 @@
 -(void)update;
 -(void)render;
 -(GLKMatrix4)projectionMatrix;
-
+-(void)renderOnce;
 @end
