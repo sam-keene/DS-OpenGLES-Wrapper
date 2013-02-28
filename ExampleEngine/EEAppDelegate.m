@@ -8,7 +8,7 @@
 
 #import "EEAppDelegate.h"
 #import "EESceneController.h"
-#import "ForestScene.h"
+#import "ComplexAnimationScenen.h"
 
 @implementation EEAppDelegate
 
@@ -30,7 +30,7 @@
   self.window.rootViewController = controller;
   [self.window makeKeyAndVisible];
   
-    scene = [[ForestScene alloc] init];
+    scene = [[ComplexAnimationScenen alloc] init];
     scene.clearColor = GLKVector4Make(0.1, 0.9, 0.9, 0.0);
     scene.left   = -3;
     scene.right  =  3;
@@ -44,7 +44,10 @@
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller {
     //NSLog(@"in glkViewControllerUpdate");
-    [scene update];
+    //[scene update];
+    
+    //GLKit exposes some methods relating to tim, including timeSinceLastUpdate
+     [scene update:controller.timeSinceLastUpdate];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
