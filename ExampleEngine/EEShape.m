@@ -9,7 +9,7 @@
 #import "EEShape.h"
 
 @implementation EEShape
-@synthesize color, useConstantColor, position, rotation, scale, parent, children;
+@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture;
 
 //set the defaults
 -(id)init {
@@ -32,6 +32,8 @@
         
         // Scale to original size
         scale = GLKVector2Make(1,1);
+        
+        self.effect = [[GLKBaseEffect alloc] init];
     }
     return self;
 }
@@ -55,36 +57,37 @@
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     //we shouldn't be creating this every render update
-    GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
+    
     
     //use constant color, or "Flat, solid color"
     if (useConstantColor) {
-        effect.useConstantColor = YES;
-        effect.constantColor = color;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = self.color;
     }
     
     //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
-    if (texture != nil) {
-        effect.texture2d0.envMode = GLKTextureEnvModeReplace;
-        effect.texture2d0.target = GLKTextureTarget2D;
-        effect.texture2d0.name = texture.name;
+    if (self.texture != nil) {
+        self.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
+        self.effect.texture2d0.target = GLKTextureTarget2D;
+        //effect.texture2d0.name = texture.name;
+        self.effect.texture2d0.name = self.texture.name;
     }
     
     //enable the texture data and send it to GL in the same ways as for colors and positions
     //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
-    if (texture != nil) {
+    if (self.texture != nil) {
         glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
         glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, 0, self.textureCoordinates);
     }
     
     // Set up the projection matrix to fit the scene's boundaries
-    effect.transform.projectionMatrix = scene.projectionMatrix;
+    self.effect.transform.projectionMatrix = scene.projectionMatrix;
     
     //model view matrix is used to display multiple shapesin the same context...
-    effect.transform.modelviewMatrix = self.modelviewMatrix;
+    self.effect.transform.modelviewMatrix = self.modelviewMatrix;
     
     // Tell OpenGL that we're going to use this effect for our upcoming drawing
-    [effect prepareToDraw];
+    [self.effect prepareToDraw];
     
     // Tell OpenGL that we'll be using vertex position data
     glEnableVertexAttribArray(GLKVertexAttribPosition);
@@ -108,7 +111,7 @@
         glDisableVertexAttribArray(GLKVertexAttribColor);
     
     // Cleanup: Done with texture data (only if we used it)
-    if (texture != nil)
+    if (self.texture != nil)
         glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
     
     //disable glBlend for transparencies

@@ -19,6 +19,7 @@
     GLKTextureInfo *texture;
     GLKVector2 position;
     GLKVector2 scale;
+    GLKBaseEffect *effect;
     EEShape *parent;
     NSMutableArray *children;
     float rotation;
@@ -37,6 +38,8 @@
 @property GLKVector2 position;
 @property(strong, readonly) NSMutableArray *children;
 @property(strong) EEShape *parent;
+@property(strong,readonly) GLKTextureInfo *texture;
+@property(strong) GLKBaseEffect *effect;
 
 -(void)renderInScene:(EEScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
