@@ -11,8 +11,8 @@
 #import "EERectangle.h"
 
 @interface TreeScene : EEScene {
-    EETriangle *leaves;
-    EERectangle *trunk;
+    //EETriangle *leaves;
+    //EERectangle *trunk;
 }
 
 @end
