@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 #import "EEScene.h"
+#import "EESpriteAnimation.h"
 
 @interface EEShape : NSObject
 {
@@ -25,6 +26,7 @@
     EEShape *parent;
     NSMutableArray *children;
     NSMutableArray *animations;
+    EESpriteAnimation *spriteAnimation;
     float rotation;
     float angularVelocity, angularAcceleration; //for rotation
     BOOL useConstantColor;
@@ -48,6 +50,7 @@
 @property(strong,readonly) GLKTextureInfo *texture;
 @property(strong) GLKBaseEffect *effect;
 @property(strong, readonly) NSMutableArray *animations;
+@property(strong) EESpriteAnimation *spriteAnimation;
 
 -(void)renderInScene:(EEScene *)scene;
 -(void)setTextureImage:(UIImage *)image;

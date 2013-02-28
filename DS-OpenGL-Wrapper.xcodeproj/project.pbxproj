@@ -37,6 +37,8 @@
 		27A8D64C16DFEC02002EC721 /* EEAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64B16DFEC02002EC721 /* EEAnimation.m */; };
 		27A8D64F16DFF1D2002EC721 /* ManuallyMovedTreet.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */; };
 		27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */; };
+		27A8D65D16E00372002EC721 /* EESpriteAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65C16E00372002EC721 /* EESpriteAnimation.m */; };
+		27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D66016E0071F002EC721 /* FrameAnimationScene.m */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -105,6 +107,10 @@
 		27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManuallyMovedTreet.m; sourceTree = "<group>"; };
 		27A8D65016DFF5F5002EC721 /* ComplexAnimationScenen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexAnimationScenen.h; sourceTree = "<group>"; };
 		27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexAnimationScenen.m; sourceTree = "<group>"; };
+		27A8D65B16E00372002EC721 /* EESpriteAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EESpriteAnimation.h; sourceTree = "<group>"; };
+		27A8D65C16E00372002EC721 /* EESpriteAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EESpriteAnimation.m; sourceTree = "<group>"; };
+		27A8D65F16E0071E002EC721 /* FrameAnimationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAnimationScene.h; sourceTree = "<group>"; };
+		27A8D66016E0071F002EC721 /* FrameAnimationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameAnimationScene.m; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +176,8 @@
 				27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */,
 				27A8D65016DFF5F5002EC721 /* ComplexAnimationScenen.h */,
 				27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */,
+				27A8D65F16E0071E002EC721 /* FrameAnimationScene.h */,
+				27A8D66016E0071F002EC721 /* FrameAnimationScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -219,6 +227,8 @@
 			children = (
 				27A8D64A16DFEC02002EC721 /* EEAnimation.h */,
 				27A8D64B16DFEC02002EC721 /* EEAnimation.m */,
+				27A8D65B16E00372002EC721 /* EESpriteAnimation.h */,
+				27A8D65C16E00372002EC721 /* EESpriteAnimation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -377,6 +387,8 @@
 				27A8D64C16DFEC02002EC721 /* EEAnimation.m in Sources */,
 				27A8D64F16DFF1D2002EC721 /* ManuallyMovedTreet.m in Sources */,
 				27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */,
+				27A8D65D16E00372002EC721 /* EESpriteAnimation.m in Sources */,
+				27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

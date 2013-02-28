@@ -10,7 +10,7 @@
 #import "EEAnimation.h"
 
 @implementation EEShape
-@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations;
+@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
 
 //set the defaults
 -(id)init
@@ -73,11 +73,22 @@
     
     //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
     if (self.texture != nil) {
+        effect.texture2d0.envMode = GLKTextureEnvModeReplace;
+        effect.texture2d0.target = GLKTextureTarget2D;
+        if (self.spriteAnimation != nil)
+            effect.texture2d0.name = [self.spriteAnimation currentFrame].name;
+        else
+            effect.texture2d0.name = self.texture.name;
+    }
+    
+    /*
+    if (self.texture != nil) {
         self.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
         self.effect.texture2d0.target = GLKTextureTarget2D;
         //effect.texture2d0.name = texture.name;
         self.effect.texture2d0.name = self.texture.name;
     }
+    */
     
     //enable the texture data and send it to GL in the same ways as for colors and positions
     //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
@@ -225,6 +236,8 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
     GLKVector2 distanceTraveled = GLKVector2MultiplyScalar(self.velocity, dt);
     //the next line could be written a lot easier on C++ as position+=velocity*dt
     self.position = GLKVector2Add(self.position, distanceTraveled);
+    
+    [spriteAnimation update:dt];
 }
 
 // FACTORY METHOD THAT STEALS SOME INSPIRATION FROM UIVIEW's ANIMATION METHODS
