@@ -19,6 +19,7 @@
     GLKTextureInfo *texture;
     GLKVector2 position;
     GLKVector2 scale;
+    GLKVector2 velocity;
     GLKBaseEffect *effect;
     EEShape *parent;
     NSMutableArray *children;
@@ -36,6 +37,7 @@
 @property GLKVector2 scale;
 @property GLKVector4 color;
 @property GLKVector2 position;
+@property GLKVector2 velocity;
 @property(strong, readonly) NSMutableArray *children;
 @property(strong) EEShape *parent;
 @property(strong,readonly) GLKTextureInfo *texture;
@@ -44,5 +46,6 @@
 -(void)renderInScene:(EEScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
 -(void)addChild:(EEShape *)child;
+-(void)update:(NSTimeInterval)dt;
 
 @end

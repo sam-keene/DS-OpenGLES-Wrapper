@@ -9,7 +9,7 @@
 #import "EEShape.h"
 
 @implementation EEShape
-@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture;
+@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity;
 
 //set the defaults
 -(id)init {
@@ -188,6 +188,12 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
 -(void)addChild:(EEShape *)child {
     child.parent = self;
     [children addObject:child];
+}
+
+-(void)update:(NSTimeInterval)dt {
+    GLKVector2 distanceTraveled = GLKVector2MultiplyScalar(self.velocity, dt);
+    //the next line could be written a lot easier on C++ as position+=velocity*dt
+    self.position = GLKVector2Add(self.position, distanceTraveled);
 }
 
 @end
