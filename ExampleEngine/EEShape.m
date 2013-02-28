@@ -114,7 +114,7 @@
     //disable glBlend for transparencies
     glDisable(GL_BLEND);
     
-    // Draw our children
+    // Draw our children recursively
     [children makeObjectsPerformSelector:@selector(renderInScene:) withObject:scene];
 }
 
