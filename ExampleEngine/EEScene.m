@@ -7,6 +7,7 @@
 //
 
 #import "EEScene.h"
+#import "EEShape.h"
 
 @implementation EEScene
 
@@ -44,5 +45,11 @@
 -(GLKMatrix4)projectionMatrix
 {
     return GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
+}
+
+-(void)update:(NSTimeInterval)dt {
+    [shapes enumerateObjectsUsingBlock:^(EEShape *shape, NSUInteger idx, BOOL *stop) {
+        [shape update:dt];
+    }];
 }
 @end
