@@ -1,15 +1,23 @@
 //
-//  TreeScene.m
+//  Tree.m
 //  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/27/13.
+//  Created by Sam Keene on 2/28/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "TreeScene.h"
+#import "Tree.h"
+#import "EETriangle.h"
+#import "EERectangle.h"
 
-@implementation TreeScene
+@implementation Tree
 
+
+
+/*
+ EXAMPLE OF HOW TO MAKE A CUSTOM SHAPE THAT CAN THEN BE USED OVER AND OVER WITHOUT 
+ SIGNIFICANT MEMORY USAGE
+*/
 -(id)init {
     self = [super init];
     if (self) {
@@ -26,23 +34,10 @@
         trunk.position = GLKVector2Make(0, -1.25);
         trunk.color = GLKVector4Make(0.4, 0.1, 0, 1);
         
-        EEShape *tree = [[EEShape alloc] init];
-        [tree addChild:trunk];
-        [tree addChild:leaves];
-        tree.scale = GLKVector2Make(0.5, 0.5);
-        tree.position = GLKVector2Make(1,0);
-        
-        [self.shapes addObject:tree];
-        
+        [self addChild:trunk];
+        [self addChild:leaves];
     }
     return self;
-}
-
-
--(void)render {
-    [super render];
-    //[leaves renderInScene:self];
-    //[trunk renderInScene:self];
 }
 
 @end
