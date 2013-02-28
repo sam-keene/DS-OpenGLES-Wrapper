@@ -24,4 +24,6 @@
 -(void)render;
 -(GLKMatrix4)projectionMatrix;
 -(void)renderOnce;
+-(void)update:(NSTimeInterval)dt;
+
 @end

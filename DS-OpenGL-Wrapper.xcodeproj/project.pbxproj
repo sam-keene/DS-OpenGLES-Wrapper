@@ -31,6 +31,7 @@
 		27A8D63016DFB95B002EC721 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62F16DFB95B002EC721 /* Tree.m */; };
 		27A8D63316DFBD61002EC721 /* ForestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D63216DFBD61002EC721 /* ForestScene.m */; };
 		27A8D63616DFC0C2002EC721 /* OptimizedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D63516DFC0C1002EC721 /* OptimizedTree.m */; };
+		27A8D64116DFD0C2002EC721 /* VelocityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64016DFD0C2002EC721 /* VelocityScene.m */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -87,6 +88,8 @@
 		27A8D63216DFBD61002EC721 /* ForestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForestScene.m; sourceTree = "<group>"; };
 		27A8D63416DFC0C1002EC721 /* OptimizedTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimizedTree.h; sourceTree = "<group>"; };
 		27A8D63516DFC0C1002EC721 /* OptimizedTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptimizedTree.m; sourceTree = "<group>"; };
+		27A8D63F16DFD0C2002EC721 /* VelocityScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityScene.h; sourceTree = "<group>"; };
+		27A8D64016DFD0C2002EC721 /* VelocityScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityScene.m; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +145,8 @@
 				27A8D62C16DEC354002EC721 /* TreeScene.m */,
 				27A8D63116DFBD60002EC721 /* ForestScene.h */,
 				27A8D63216DFBD61002EC721 /* ForestScene.m */,
+				27A8D63F16DFD0C2002EC721 /* VelocityScene.h */,
+				27A8D64016DFD0C2002EC721 /* VelocityScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				27A8D63016DFB95B002EC721 /* Tree.m in Sources */,
 				27A8D63316DFBD61002EC721 /* ForestScene.m in Sources */,
 				27A8D63616DFC0C2002EC721 /* OptimizedTree.m in Sources */,
+				27A8D64116DFD0C2002EC721 /* VelocityScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
