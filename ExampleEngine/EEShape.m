@@ -7,14 +7,18 @@
 //
 
 #import "EEShape.h"
+#import "EEAnimation.h"
 
 @implementation EEShape
-@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity;
+@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations;
 
 //set the defaults
--(id)init {
+-(id)init
+{
     self = [super init];
     if (self) {
+        
+        animations = [[NSMutableArray alloc] init];
         //holds the childeren shapes
         children = [[NSMutableArray alloc] init];
         // Draw with the color white
@@ -38,11 +42,13 @@
     return self;
 }
 
--(int)numVertices {
+-(int)numVertices
+{
     return 0;
 }
 
-- (GLKVector2 *)vertices {
+- (GLKVector2 *)vertices
+{
     if (vertexData == nil)
         vertexData = [NSMutableData dataWithLength:sizeof(GLKVector2)*self.numVertices];
     return [vertexData mutableBytes];
@@ -137,7 +143,8 @@
 //  3 Sending texture coordinates to OpenGL.
 
 //  LOAD THE TEXTURE using GLKTextureLoader
--(void)setTextureImage:(UIImage *)image {
+-(void)setTextureImage:(UIImage *)image
+{
     NSError *error;
     
     //GLKit flips the image on load, so its 0,0 corrdinate point lines up with UIKit, add this dic to stop it from flipping
@@ -157,7 +164,8 @@
  
     GL 0,0 is bottom left
  */
-- (GLKVector2 *)textureCoordinates {
+- (GLKVector2 *)textureCoordinates
+{
     if (textureCoordinateData == nil)
         textureCoordinateData = [NSMutableData dataWithLength:sizeof(GLKVector2)*self.numVertices];
     return [textureCoordinateData mutableBytes];
@@ -172,7 +180,8 @@
  - these happen in order, so changing their order will change the outcome
   effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, 0);
  */
--(GLKMatrix4)modelviewMatrix {
+-(GLKMatrix4)modelviewMatrix
+{
     GLKMatrix4 modelviewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeTranslation(position.x, position.y, 0),
                                                     GLKMatrix4MakeRotation(rotation, 0, 0, 1));
     modelviewMatrix = GLKMatrix4Multiply(modelviewMatrix, GLKMatrix4MakeScale(scale.x, scale.y, 1));
@@ -185,15 +194,65 @@
 /*
 add child adds the shape with it's vertex arrays to this array so we can cycle through it
  */
--(void)addChild:(EEShape *)child {
+-(void)addChild:(EEShape *)child
+{
     child.parent = self;
     [children addObject:child];
 }
 
--(void)update:(NSTimeInterval)dt {
+-(void)update:(NSTimeInterval)dt
+{
+    //loop through the object’s animations and ask each one to update the shape’s attributes. This is the same strategy as DSScene‘s asking each object to update itself.
+    [self.animations enumerateObjectsUsingBlock:^(EEAnimation *animation, NSUInteger idx, BOOL *stop) {
+        [animation animateShape:self dt:dt];
+    }];
+    
+    //filter the shape’s animations array to only keep animations that have not yet finished.
+    [self.animations filterUsingPredicate:
+     [NSPredicate predicateWithBlock:^BOOL(EEAnimation *animation, NSDictionary *bindings) {
+        return animation.elapsedTime <= animation.duration;
+    }]
+     ];
+    
+    //angular velocity for rotation
+    angularVelocity += angularAcceleration * dt;
+    rotation += angularVelocity * dt;
+    
+    // add acceleration
+    GLKVector2 changeInVelocity = GLKVector2MultiplyScalar(self.acceleration, dt);
+    self.velocity = GLKVector2Add(self.velocity, changeInVelocity);
+    
     GLKVector2 distanceTraveled = GLKVector2MultiplyScalar(self.velocity, dt);
     //the next line could be written a lot easier on C++ as position+=velocity*dt
     self.position = GLKVector2Add(self.position, distanceTraveled);
+}
+
+// FACTORY METHOD THAT STEALS SOME INSPIRATION FROM UIVIEW's ANIMATION METHODS
+-(void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animationsBlock
+{
+    //the current values of our animatable attributes
+    GLKVector2 currentPosition = self.position;
+    GLKVector2 currentScale = self.scale;
+    GLKVector4 currentColor = self.color;
+    float currentRotation = self.rotation;
+    
+    //calls the block which will update our attributes
+    animationsBlock();
+    
+    //create animation with deltas based on the difference between the desired values and the current values of our attributes.
+    EEAnimation *animation = [[EEAnimation alloc] init];
+    animation.positionDelta = GLKVector2Subtract(self.position, currentPosition);
+    animation.scaleDelta = GLKVector2Subtract(self.scale, currentScale);
+    animation.rotationDelta = self.rotation - currentRotation;
+    animation.colorDelta = GLKVector4Subtract(self.color, currentColor);
+    animation.duration = duration;
+    [self.animations addObject:animation];
+    
+    //reset our attributes to what they were before the block; we’re animating to them, after all, not setting them immediately.
+    self.position = currentPosition;
+    self.scale = currentScale;
+    self.color = currentColor;
+    self.rotation = currentRotation;
 }
 
 @end
