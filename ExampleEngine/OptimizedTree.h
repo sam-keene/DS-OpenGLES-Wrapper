@@ -7,9 +7,9 @@
 //
 
 
-#import "EEShape.h"
-#import "EERectangle.h"
-#import "EETriangle.h"
+#import "DSShape.h"
+#import "DSRectangle.h"
+#import "DSTriangle.h"
 
 /*
  IN THIS CLASS WE USE THE same vertex data for their leaves and trunks. 
@@ -20,8 +20,8 @@
  to the prototype object.
  
  */
-@interface OptimizedShape : EEShape  {
-    EEShape *prototype;
+@interface OptimizedShape : DSShape  {
+    DSShape *prototype;
 }
 @end
 
@@ -31,5 +31,5 @@
 @interface OptimizedLeaves : OptimizedShape
 @end
 
-@interface OptimizedTree : EEShape
+@interface OptimizedTree : DSShape
 @end

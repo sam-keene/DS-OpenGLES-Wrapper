@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EERectangle.h"
+#import "DSScene.h"
+#import "DSRectangle.h"
 
-@interface LandscapeScene : EEScene{
-    EERectangle *rectangle;
+@interface LandscapeScene : DSScene{
+    DSRectangle *rectangle;
 }
 
 @end

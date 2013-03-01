@@ -1,14 +1,14 @@
 //
-//  EERectangle.m
-//  ExampleEngine
+//  DSRectangle.m
+//  
 //
 //  Created by Sam Keene on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EERectangle.h"
+#import "DSRectangle.h"
 
-@implementation EERectangle
+@implementation DSRectangle
 
 -(int)numVertices {
     return 4;

@@ -1,5 +1,5 @@
 //
-//  EEAnimation.h
+//  DSAnimation.h
 //  DS-OpenGL-Wrapper
 //
 //  Created by Sam Keene on 2/28/13.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
-#import "EEShape.h"
+#import "DSShape.h"
 
-@interface EEAnimation : NSObject
+@interface DSAnimation : NSObject
 {
     float rotationDelta;
     GLKVector2 scaleDelta;
@@ -27,6 +27,6 @@
 @property GLKVector2 scaleDelta;
 @property GLKVector4 colorDelta;
 
--(void)animateShape:(EEShape *)shape dt:(NSTimeInterval)dt;
+-(void)animateShape:(DSShape *)shape dt:(NSTimeInterval)dt;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  EEAnimation.m
+//  DSAnimation.m
 //  DS-OpenGL-Wrapper
 //
 //  Created by Sam Keene on 2/28/13.
@@ -13,13 +13,13 @@
  Create temporary animations that act only on the modelview matrix.
  Create reversible animations.
  Create repeating animations.
- Create animations with nonlinear tweening, i.e. “ease in” or “ease out”.
+ Create animations with nonlinear twDSning, i.e. “ease in” or “ease out”.
  */
 
-#import "EEAnimation.h"
-#import "EEShape.h"
+#import "DSAnimation.h"
+#import "DSShape.h"
 
-@implementation EEAnimation
+@implementation DSAnimation
 @synthesize duration, elapsedTime, positionDelta, rotationDelta, scaleDelta, colorDelta;
 
 -(id)init
@@ -36,7 +36,7 @@
     return self;
 }
 
--(void)animateShape:(EEShape *)shape dt:(NSTimeInterval)dt
+-(void)animateShape:(DSShape *)shape dt:(NSTimeInterval)dt
 {
     self.elapsedTime += dt;
     

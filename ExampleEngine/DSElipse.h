@@ -1,15 +1,15 @@
 //
-//  EERectangle.h
+//  EEElipse.h
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEShape.h"
+#import "DSShape.h"
 
-@interface EERectangle : EEShape {
-    float width, height;
+@interface DSElipse : DSShape {
+    float radiusX, radiusY;
 }
-@property float width, height;
+@property float radiusX, radiusY;
 @end

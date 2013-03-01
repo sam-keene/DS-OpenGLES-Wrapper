@@ -1,5 +1,5 @@
 //
-//  EEScene.h
+//  DSScene.h
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface EEScene : NSObject
+@interface DSScene : NSObject
 {
     GLKVector4 clearColor;
     float left, right, bottom, top;

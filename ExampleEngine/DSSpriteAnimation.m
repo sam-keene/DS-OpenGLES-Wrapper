@@ -1,14 +1,14 @@
 //
-//  EESpriteAnimation.m
+//  DSSpriteAnimation.m
 //  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/28/13.
+//  Created by Sam KDSne on 2/28/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EESpriteAnimation.h"
+#import "DSSpriteAnimation.h"
 
-@implementation EESpriteAnimation
+@implementation DSSpriteAnimation
 
 -(id)initWithTimePerFrame:(float)time framesNamed:(NSArray *)frameNames {
     self = [super init];

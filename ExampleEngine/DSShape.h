@@ -1,5 +1,5 @@
 //
-//  EEShape.h
+//  DSShape.h
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
-#import "EEScene.h"
-#import "EESpriteAnimation.h"
+#import "DSScene.h"
+#import "DSSpriteAnimation.h"
 
-@interface EEShape : NSObject
+@interface DSShape : NSObject
 {
     NSMutableData *vertexData;
     NSMutableData *vertexColorData;
@@ -23,10 +23,10 @@
     GLKVector2 velocity;
     GLKVector2 acceleration;
     GLKBaseEffect *effect;
-    EEShape *parent;
+    DSShape *parent;
     NSMutableArray *children;
     NSMutableArray *animations;
-    EESpriteAnimation *spriteAnimation;
+    DSSpriteAnimation *spriteAnimation;
     float rotation;
     float angularVelocity, angularAcceleration; //for rotation
     BOOL useConstantColor;
@@ -46,15 +46,15 @@
 @property GLKVector2 velocity;
 @property GLKVector2 acceleration;
 @property(strong, readonly) NSMutableArray *children;
-@property(strong) EEShape *parent;
+@property(strong) DSShape *parent;
 @property(strong,readonly) GLKTextureInfo *texture;
 @property(strong) GLKBaseEffect *effect;
 @property(strong, readonly) NSMutableArray *animations;
-@property(strong) EESpriteAnimation *spriteAnimation;
+@property(strong) DSSpriteAnimation *spriteAnimation;
 
--(void)renderInScene:(EEScene *)scene;
+-(void)renderInScene:(DSScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
--(void)addChild:(EEShape *)child;
+-(void)addChild:(DSShape *)child;
 -(void)update:(NSTimeInterval)dt;
 -(void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animationsBlock;
 

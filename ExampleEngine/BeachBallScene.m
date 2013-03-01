@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        ellipse = [[EEElipse alloc] init];
+        ellipse = [[DSElipse alloc] init];
         ellipse.radiusX = 1;
         ellipse.radiusY = 1;
         
