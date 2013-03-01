@@ -1,14 +1,15 @@
 //
-//  RectangleScene.h
-//  ExampleEngine
+//  LandscapeScene.h
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 2/27/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
 #import "DSScene.h"
 #import "DSRectangle.h"
-@interface RectangleScene : DSScene{
+
+@interface LandscapeScene : DSScene{
     DSRectangle *rectangle;
 }
 

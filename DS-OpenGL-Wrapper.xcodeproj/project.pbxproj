@@ -7,17 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27A8D5D016DD55F3002EC721 /* EEScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5CF16DD55F3002EC721 /* EEScene.m */; };
-		27A8D5D616DD5A96002EC721 /* EESceneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5D516DD5A96002EC721 /* EESceneController.m */; };
-		27A8D5D916DD5E98002EC721 /* EEShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5D816DD5E98002EC721 /* EEShape.m */; };
-		27A8D5DC16DD6062002EC721 /* EETriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5DB16DD6061002EC721 /* EETriangle.m */; };
+		27A8D5D016DD55F3002EC721 /* DSScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5CF16DD55F3002EC721 /* DSScene.m */; };
+		27A8D5D916DD5E98002EC721 /* DSShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5D816DD5E98002EC721 /* DSShape.m */; };
 		27A8D5DF16DD60D7002EC721 /* TriangleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5DE16DD60D7002EC721 /* TriangleScene.m */; };
-		27A8D5E216DD62EC002EC721 /* EERectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5E116DD62EB002EC721 /* EERectangle.m */; };
+		27A8D5E216DD62EC002EC721 /* DSRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5E116DD62EB002EC721 /* DSRectangle.m */; };
 		27A8D5E516DD63CD002EC721 /* RectangleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5E416DD63CD002EC721 /* RectangleScene.m */; };
-		27A8D5E816DD66E8002EC721 /* EEElipse.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5E716DD66E7002EC721 /* EEElipse.m */; };
-		27A8D5EB16DD679A002EC721 /* EEElipseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5EA16DD679A002EC721 /* EEElipseScene.m */; };
-		27A8D5EE16DD6922002EC721 /* EERegularPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */; };
+		27A8D5E816DD66E8002EC721 /* DSElipse.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5E716DD66E7002EC721 /* DSElipse.m */; };
+		27A8D5EB16DD679A002EC721 /* DSElipseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5EA16DD679A002EC721 /* DSElipseScene.m */; };
 		27A8D5F116DD69C6002EC721 /* RegularPolygonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */; };
+		27A8D60716DE975A002EC721 /* landscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D60616DE975A002EC721 /* landscape.jpg */; };
+		27A8D60A16DE9D48002EC721 /* LandscapeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D60916DE9D48002EC721 /* LandscapeScene.m */; };
+		27A8D60D16DEA279002EC721 /* BeachBallScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D60C16DEA279002EC721 /* BeachBallScene.m */; };
+		27A8D61116DEA3C9002EC721 /* ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D61016DEA3C9002EC721 /* ball.jpg */; };
+		27A8D61316DEA5BE002EC721 /* triangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D61216DEA5BE002EC721 /* triangle.jpg */; };
+		27A8D61616DEA5F2002EC721 /* EquilateralTriangleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D61516DEA5F1002EC721 /* EquilateralTriangleScene.m */; };
+		27A8D62516DEAC3D002EC721 /* DSSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62416DEAC3D002EC721 /* DSSprite.m */; };
+		27A8D62716DEAD1B002EC721 /* boy-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D62616DEAD1B002EC721 /* boy-sprite.png */; };
+		27A8D62A16DEAD46002EC721 /* SpriteScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62916DEAD46002EC721 /* SpriteScene.m */; };
+		27A8D62D16DEC354002EC721 /* TreeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62C16DEC354002EC721 /* TreeScene.m */; };
+		27A8D63016DFB95B002EC721 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D62F16DFB95B002EC721 /* Tree.m */; };
+		27A8D63316DFBD61002EC721 /* ForestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D63216DFBD61002EC721 /* ForestScene.m */; };
+		27A8D63616DFC0C2002EC721 /* OptimizedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D63516DFC0C1002EC721 /* OptimizedTree.m */; };
+		27A8D64116DFD0C2002EC721 /* VelocityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64016DFD0C2002EC721 /* VelocityScene.m */; };
+		27A8D64516DFD29E002EC721 /* AccelerationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64416DFD29E002EC721 /* AccelerationScene.m */; };
+		27A8D64816DFD4C7002EC721 /* RotatingTreeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64716DFD4C7002EC721 /* RotatingTreeScene.m */; };
+		27A8D64C16DFEC02002EC721 /* DSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64B16DFEC02002EC721 /* DSAnimation.m */; };
+		27A8D64F16DFF1D2002EC721 /* ManuallyMovedTreet.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */; };
+		27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */; };
+		27A8D65D16E00372002EC721 /* DSSpriteAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65C16E00372002EC721 /* DSSpriteAnimation.m */; };
+		27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D66016E0071F002EC721 /* FrameAnimationScene.m */; };
+		27A8D6A216E103CA002EC721 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6A016E103C8002EC721 /* MainViewController.m */; };
+		27A8D6A916E10C8C002EC721 /* DSSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6A816E10C8C002EC721 /* DSSceneViewController.xib */; };
+		27A8D6AD16E10E54002EC721 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6AB16E10E53002EC721 /* TempViewController.m */; };
+		27A8D6AE16E10E54002EC721 /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6AC16E10E53002EC721 /* TempViewController.xib */; };
+		27A8D6EC16E1166F002EC721 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6EB16E1166E002EC721 /* MainViewController.xib */; };
+		27A8D6EE16E11A5C002EC721 /* DSSceneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6ED16E11A5B002EC721 /* DSSceneController.m */; };
+		27A8D6F116E11BDD002EC721 /* DSTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6F016E11BDC002EC721 /* DSTriangle.m */; };
+		27A8D6F316E11C59002EC721 /* DSRegularPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6F216E11C58002EC721 /* DSRegularPolygon.m */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -29,28 +55,74 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		27A8D5CE16DD55F3002EC721 /* EEScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEScene.h; sourceTree = "<group>"; };
-		27A8D5CF16DD55F3002EC721 /* EEScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEScene.m; sourceTree = "<group>"; };
-		27A8D5D416DD5A96002EC721 /* EESceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EESceneController.h; sourceTree = "<group>"; };
-		27A8D5D516DD5A96002EC721 /* EESceneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EESceneController.m; sourceTree = "<group>"; };
-		27A8D5D716DD5E97002EC721 /* EEShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEShape.h; sourceTree = "<group>"; };
-		27A8D5D816DD5E98002EC721 /* EEShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEShape.m; sourceTree = "<group>"; };
-		27A8D5DA16DD6061002EC721 /* EETriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETriangle.h; sourceTree = "<group>"; };
-		27A8D5DB16DD6061002EC721 /* EETriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETriangle.m; sourceTree = "<group>"; };
+		27A8D5CE16DD55F3002EC721 /* DSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSScene.h; sourceTree = "<group>"; };
+		27A8D5CF16DD55F3002EC721 /* DSScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSScene.m; sourceTree = "<group>"; };
+		27A8D5D416DD5A96002EC721 /* DSSceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSceneController.h; sourceTree = "<group>"; };
+		27A8D5D716DD5E97002EC721 /* DSShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSShape.h; sourceTree = "<group>"; };
+		27A8D5D816DD5E98002EC721 /* DSShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSShape.m; sourceTree = "<group>"; };
+		27A8D5DA16DD6061002EC721 /* DSTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTriangle.h; sourceTree = "<group>"; };
 		27A8D5DD16DD60D7002EC721 /* TriangleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleScene.h; sourceTree = "<group>"; };
 		27A8D5DE16DD60D7002EC721 /* TriangleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleScene.m; sourceTree = "<group>"; };
-		27A8D5E016DD62EB002EC721 /* EERectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EERectangle.h; sourceTree = "<group>"; };
-		27A8D5E116DD62EB002EC721 /* EERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EERectangle.m; sourceTree = "<group>"; };
+		27A8D5E016DD62EB002EC721 /* DSRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSRectangle.h; sourceTree = "<group>"; };
+		27A8D5E116DD62EB002EC721 /* DSRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSRectangle.m; sourceTree = "<group>"; };
 		27A8D5E316DD63CD002EC721 /* RectangleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleScene.h; sourceTree = "<group>"; };
 		27A8D5E416DD63CD002EC721 /* RectangleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleScene.m; sourceTree = "<group>"; };
-		27A8D5E616DD66E7002EC721 /* EEElipse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEElipse.h; sourceTree = "<group>"; };
-		27A8D5E716DD66E7002EC721 /* EEElipse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEElipse.m; sourceTree = "<group>"; };
-		27A8D5E916DD6799002EC721 /* EEElipseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEElipseScene.h; sourceTree = "<group>"; };
-		27A8D5EA16DD679A002EC721 /* EEElipseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEElipseScene.m; sourceTree = "<group>"; };
-		27A8D5EC16DD6921002EC721 /* EERegularPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EERegularPolygon.h; sourceTree = "<group>"; };
-		27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EERegularPolygon.m; sourceTree = "<group>"; };
+		27A8D5E616DD66E7002EC721 /* DSElipse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSElipse.h; sourceTree = "<group>"; };
+		27A8D5E716DD66E7002EC721 /* DSElipse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSElipse.m; sourceTree = "<group>"; };
+		27A8D5E916DD6799002EC721 /* DSElipseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSElipseScene.h; sourceTree = "<group>"; };
+		27A8D5EA16DD679A002EC721 /* DSElipseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSElipseScene.m; sourceTree = "<group>"; };
+		27A8D5EC16DD6921002EC721 /* DSRegularPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSRegularPolygon.h; sourceTree = "<group>"; };
 		27A8D5EF16DD69C5002EC721 /* RegularPolygonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularPolygonScene.h; sourceTree = "<group>"; };
 		27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularPolygonScene.m; sourceTree = "<group>"; };
+		27A8D60616DE975A002EC721 /* landscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = landscape.jpg; path = Assets/images/landscape.jpg; sourceTree = "<group>"; };
+		27A8D60816DE9D47002EC721 /* LandscapeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeScene.h; sourceTree = "<group>"; };
+		27A8D60916DE9D48002EC721 /* LandscapeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeScene.m; sourceTree = "<group>"; };
+		27A8D60B16DEA279002EC721 /* BeachBallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeachBallScene.h; sourceTree = "<group>"; };
+		27A8D60C16DEA279002EC721 /* BeachBallScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeachBallScene.m; sourceTree = "<group>"; };
+		27A8D60F16DEA34C002EC721 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		27A8D61016DEA3C9002EC721 /* ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ball.jpg; path = Assets/images/ball.jpg; sourceTree = "<group>"; };
+		27A8D61216DEA5BE002EC721 /* triangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = triangle.jpg; path = Assets/images/triangle.jpg; sourceTree = "<group>"; };
+		27A8D61416DEA5F1002EC721 /* EquilateralTriangleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquilateralTriangleScene.h; sourceTree = "<group>"; };
+		27A8D61516DEA5F1002EC721 /* EquilateralTriangleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquilateralTriangleScene.m; sourceTree = "<group>"; };
+		27A8D62316DEAC3D002EC721 /* DSSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSprite.h; sourceTree = "<group>"; };
+		27A8D62416DEAC3D002EC721 /* DSSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSprite.m; sourceTree = "<group>"; };
+		27A8D62616DEAD1B002EC721 /* boy-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boy-sprite.png"; path = "Assets/images/boy-sprite.png"; sourceTree = "<group>"; };
+		27A8D62816DEAD45002EC721 /* SpriteScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteScene.h; sourceTree = "<group>"; };
+		27A8D62916DEAD46002EC721 /* SpriteScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteScene.m; sourceTree = "<group>"; };
+		27A8D62B16DEC353002EC721 /* TreeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeScene.h; sourceTree = "<group>"; };
+		27A8D62C16DEC354002EC721 /* TreeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeScene.m; sourceTree = "<group>"; };
+		27A8D62E16DFB95B002EC721 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		27A8D62F16DFB95B002EC721 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
+		27A8D63116DFBD60002EC721 /* ForestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForestScene.h; sourceTree = "<group>"; };
+		27A8D63216DFBD61002EC721 /* ForestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForestScene.m; sourceTree = "<group>"; };
+		27A8D63416DFC0C1002EC721 /* OptimizedTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimizedTree.h; sourceTree = "<group>"; };
+		27A8D63516DFC0C1002EC721 /* OptimizedTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptimizedTree.m; sourceTree = "<group>"; };
+		27A8D63F16DFD0C2002EC721 /* VelocityScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityScene.h; sourceTree = "<group>"; };
+		27A8D64016DFD0C2002EC721 /* VelocityScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityScene.m; sourceTree = "<group>"; };
+		27A8D64316DFD29E002EC721 /* AccelerationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationScene.h; sourceTree = "<group>"; };
+		27A8D64416DFD29E002EC721 /* AccelerationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationScene.m; sourceTree = "<group>"; };
+		27A8D64616DFD4C6002EC721 /* RotatingTreeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatingTreeScene.h; sourceTree = "<group>"; };
+		27A8D64716DFD4C7002EC721 /* RotatingTreeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatingTreeScene.m; sourceTree = "<group>"; };
+		27A8D64B16DFEC02002EC721 /* DSAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAnimation.m; sourceTree = "<group>"; };
+		27A8D64D16DFF1D1002EC721 /* ManuallyMovedTreet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManuallyMovedTreet.h; sourceTree = "<group>"; };
+		27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManuallyMovedTreet.m; sourceTree = "<group>"; };
+		27A8D65016DFF5F5002EC721 /* ComplexAnimationScenen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexAnimationScenen.h; sourceTree = "<group>"; };
+		27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexAnimationScenen.m; sourceTree = "<group>"; };
+		27A8D65B16E00372002EC721 /* DSSpriteAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSpriteAnimation.h; sourceTree = "<group>"; };
+		27A8D65C16E00372002EC721 /* DSSpriteAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSpriteAnimation.m; sourceTree = "<group>"; };
+		27A8D65F16E0071E002EC721 /* FrameAnimationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAnimationScene.h; sourceTree = "<group>"; };
+		27A8D66016E0071F002EC721 /* FrameAnimationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameAnimationScene.m; sourceTree = "<group>"; };
+		27A8D69F16E103C8002EC721 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		27A8D6A016E103C8002EC721 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		27A8D6A816E10C8C002EC721 /* DSSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSSceneViewController.xib; sourceTree = "<group>"; };
+		27A8D6AA16E10E52002EC721 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = "<group>"; };
+		27A8D6AB16E10E53002EC721 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = "<group>"; };
+		27A8D6AC16E10E53002EC721 /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
+		27A8D6EB16E1166E002EC721 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
+		27A8D6ED16E11A5B002EC721 /* DSSceneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSceneController.m; sourceTree = "<group>"; };
+		27A8D6EF16E11AF8002EC721 /* DSAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAnimation.h; sourceTree = "<group>"; };
+		27A8D6F016E11BDC002EC721 /* DSTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTriangle.m; sourceTree = "<group>"; };
+		27A8D6F216E11C58002EC721 /* DSRegularPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSRegularPolygon.m; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,16 +156,40 @@
 		27A8D5CD16DD55C4002EC721 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				27A8D5CE16DD55F3002EC721 /* EEScene.h */,
-				27A8D5CF16DD55F3002EC721 /* EEScene.m */,
+				27A8D5CE16DD55F3002EC721 /* DSScene.h */,
+				27A8D5CF16DD55F3002EC721 /* DSScene.m */,
 				27A8D5DD16DD60D7002EC721 /* TriangleScene.h */,
 				27A8D5DE16DD60D7002EC721 /* TriangleScene.m */,
 				27A8D5E316DD63CD002EC721 /* RectangleScene.h */,
 				27A8D5E416DD63CD002EC721 /* RectangleScene.m */,
-				27A8D5E916DD6799002EC721 /* EEElipseScene.h */,
-				27A8D5EA16DD679A002EC721 /* EEElipseScene.m */,
+				27A8D5E916DD6799002EC721 /* DSElipseScene.h */,
+				27A8D5EA16DD679A002EC721 /* DSElipseScene.m */,
 				27A8D5EF16DD69C5002EC721 /* RegularPolygonScene.h */,
 				27A8D5F016DD69C6002EC721 /* RegularPolygonScene.m */,
+				27A8D60816DE9D47002EC721 /* LandscapeScene.h */,
+				27A8D60916DE9D48002EC721 /* LandscapeScene.m */,
+				27A8D60B16DEA279002EC721 /* BeachBallScene.h */,
+				27A8D60C16DEA279002EC721 /* BeachBallScene.m */,
+				27A8D61416DEA5F1002EC721 /* EquilateralTriangleScene.h */,
+				27A8D61516DEA5F1002EC721 /* EquilateralTriangleScene.m */,
+				27A8D62816DEAD45002EC721 /* SpriteScene.h */,
+				27A8D62916DEAD46002EC721 /* SpriteScene.m */,
+				27A8D62B16DEC353002EC721 /* TreeScene.h */,
+				27A8D62C16DEC354002EC721 /* TreeScene.m */,
+				27A8D63116DFBD60002EC721 /* ForestScene.h */,
+				27A8D63216DFBD61002EC721 /* ForestScene.m */,
+				27A8D63F16DFD0C2002EC721 /* VelocityScene.h */,
+				27A8D64016DFD0C2002EC721 /* VelocityScene.m */,
+				27A8D64316DFD29E002EC721 /* AccelerationScene.h */,
+				27A8D64416DFD29E002EC721 /* AccelerationScene.m */,
+				27A8D64616DFD4C6002EC721 /* RotatingTreeScene.h */,
+				27A8D64716DFD4C7002EC721 /* RotatingTreeScene.m */,
+				27A8D64D16DFF1D1002EC721 /* ManuallyMovedTreet.h */,
+				27A8D64E16DFF1D2002EC721 /* ManuallyMovedTreet.m */,
+				27A8D65016DFF5F5002EC721 /* ComplexAnimationScenen.h */,
+				27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */,
+				27A8D65F16E0071E002EC721 /* FrameAnimationScene.h */,
+				27A8D66016E0071F002EC721 /* FrameAnimationScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -101,18 +197,72 @@
 		27A8D5F216DD6A22002EC721 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				27A8D5D716DD5E97002EC721 /* EEShape.h */,
-				27A8D5D816DD5E98002EC721 /* EEShape.m */,
-				27A8D5E016DD62EB002EC721 /* EERectangle.h */,
-				27A8D5E116DD62EB002EC721 /* EERectangle.m */,
-				27A8D5DA16DD6061002EC721 /* EETriangle.h */,
-				27A8D5DB16DD6061002EC721 /* EETriangle.m */,
-				27A8D5E616DD66E7002EC721 /* EEElipse.h */,
-				27A8D5E716DD66E7002EC721 /* EEElipse.m */,
-				27A8D5EC16DD6921002EC721 /* EERegularPolygon.h */,
-				27A8D5ED16DD6921002EC721 /* EERegularPolygon.m */,
+				27A8D5D716DD5E97002EC721 /* DSShape.h */,
+				27A8D5D816DD5E98002EC721 /* DSShape.m */,
+				27A8D5E016DD62EB002EC721 /* DSRectangle.h */,
+				27A8D5E116DD62EB002EC721 /* DSRectangle.m */,
+				27A8D5DA16DD6061002EC721 /* DSTriangle.h */,
+				27A8D6F016E11BDC002EC721 /* DSTriangle.m */,
+				27A8D5E616DD66E7002EC721 /* DSElipse.h */,
+				27A8D5E716DD66E7002EC721 /* DSElipse.m */,
+				27A8D5EC16DD6921002EC721 /* DSRegularPolygon.h */,
+				27A8D6F216E11C58002EC721 /* DSRegularPolygon.m */,
+				27A8D62E16DFB95B002EC721 /* Tree.h */,
+				27A8D62F16DFB95B002EC721 /* Tree.m */,
+				27A8D63416DFC0C1002EC721 /* OptimizedTree.h */,
+				27A8D63516DFC0C1002EC721 /* OptimizedTree.m */,
 			);
 			name = Shapes;
+			sourceTree = "<group>";
+		};
+		27A8D60516DE9740002EC721 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D62616DEAD1B002EC721 /* boy-sprite.png */,
+				27A8D61216DEA5BE002EC721 /* triangle.jpg */,
+				27A8D61016DEA3C9002EC721 /* ball.jpg */,
+				27A8D60616DE975A002EC721 /* landscape.jpg */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
+		27A8D60E16DEA333002EC721 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D60F16DEA34C002EC721 /* Constants.h */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		27A8D64916DFEBEA002EC721 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D6EF16E11AF8002EC721 /* DSAnimation.h */,
+				27A8D64B16DFEC02002EC721 /* DSAnimation.m */,
+				27A8D65B16E00372002EC721 /* DSSpriteAnimation.h */,
+				27A8D65C16E00372002EC721 /* DSSpriteAnimation.m */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		27A8D66216E00A95002EC721 /* DS-GL-Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				27A8D5D416DD5A96002EC721 /* DSSceneController.h */,
+				27A8D6ED16E11A5B002EC721 /* DSSceneController.m */,
+				27A8D6A816E10C8C002EC721 /* DSSceneViewController.xib */,
+				27A8D62316DEAC3D002EC721 /* DSSprite.h */,
+				27A8D62416DEAC3D002EC721 /* DSSprite.m */,
+				27A8D64916DFEBEA002EC721 /* Operations */,
+				27A8D60E16DEA333002EC721 /* Helpers */,
+				27A8D60516DE9740002EC721 /* assets */,
+				27A8D5F216DD6A22002EC721 /* Shapes */,
+				27A8D5CD16DD55C4002EC721 /* Scenes */,
+				27A8D6AA16E10E52002EC721 /* TempViewController.h */,
+				27A8D6AB16E10E53002EC721 /* TempViewController.m */,
+				27A8D6AC16E10E53002EC721 /* TempViewController.xib */,
+			);
+			name = "DS-GL-Wrapper";
 			sourceTree = "<group>";
 		};
 		3C69615C13FAC12600540465 = {
@@ -148,13 +298,13 @@
 		3C69616F13FAC12600540465 /* ExampleEngine */ = {
 			isa = PBXGroup;
 			children = (
-				27A8D5F216DD6A22002EC721 /* Shapes */,
-				27A8D5CD16DD55C4002EC721 /* Scenes */,
+				27A8D66216E00A95002EC721 /* DS-GL-Wrapper */,
 				3C69617813FAC12600540465 /* EEAppDelegate.h */,
 				3C69617913FAC12600540465 /* EEAppDelegate.m */,
 				3C69617013FAC12600540465 /* Supporting Files */,
-				27A8D5D416DD5A96002EC721 /* EESceneController.h */,
-				27A8D5D516DD5A96002EC721 /* EESceneController.m */,
+				27A8D69F16E103C8002EC721 /* MainViewController.h */,
+				27A8D6A016E103C8002EC721 /* MainViewController.m */,
+				27A8D6EB16E1166E002EC721 /* MainViewController.xib */,
 			);
 			path = ExampleEngine;
 			sourceTree = "<group>";
@@ -222,6 +372,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C69617413FAC12600540465 /* InfoPlist.strings in Resources */,
+				27A8D60716DE975A002EC721 /* landscape.jpg in Resources */,
+				27A8D61116DEA3C9002EC721 /* ball.jpg in Resources */,
+				27A8D61316DEA5BE002EC721 /* triangle.jpg in Resources */,
+				27A8D62716DEAD1B002EC721 /* boy-sprite.png in Resources */,
+				27A8D6A916E10C8C002EC721 /* DSSceneViewController.xib in Resources */,
+				27A8D6AE16E10E54002EC721 /* TempViewController.xib in Resources */,
+				27A8D6EC16E1166F002EC721 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,17 +391,36 @@
 			files = (
 				3C69617613FAC12600540465 /* main.m in Sources */,
 				3C69617A13FAC12600540465 /* EEAppDelegate.m in Sources */,
-				27A8D5D016DD55F3002EC721 /* EEScene.m in Sources */,
-				27A8D5D616DD5A96002EC721 /* EESceneController.m in Sources */,
-				27A8D5D916DD5E98002EC721 /* EEShape.m in Sources */,
-				27A8D5DC16DD6062002EC721 /* EETriangle.m in Sources */,
+				27A8D5D016DD55F3002EC721 /* DSScene.m in Sources */,
+				27A8D5D916DD5E98002EC721 /* DSShape.m in Sources */,
 				27A8D5DF16DD60D7002EC721 /* TriangleScene.m in Sources */,
-				27A8D5E216DD62EC002EC721 /* EERectangle.m in Sources */,
+				27A8D5E216DD62EC002EC721 /* DSRectangle.m in Sources */,
 				27A8D5E516DD63CD002EC721 /* RectangleScene.m in Sources */,
-				27A8D5E816DD66E8002EC721 /* EEElipse.m in Sources */,
-				27A8D5EB16DD679A002EC721 /* EEElipseScene.m in Sources */,
-				27A8D5EE16DD6922002EC721 /* EERegularPolygon.m in Sources */,
+				27A8D5E816DD66E8002EC721 /* DSElipse.m in Sources */,
+				27A8D5EB16DD679A002EC721 /* DSElipseScene.m in Sources */,
 				27A8D5F116DD69C6002EC721 /* RegularPolygonScene.m in Sources */,
+				27A8D60A16DE9D48002EC721 /* LandscapeScene.m in Sources */,
+				27A8D60D16DEA279002EC721 /* BeachBallScene.m in Sources */,
+				27A8D61616DEA5F2002EC721 /* EquilateralTriangleScene.m in Sources */,
+				27A8D62516DEAC3D002EC721 /* DSSprite.m in Sources */,
+				27A8D62A16DEAD46002EC721 /* SpriteScene.m in Sources */,
+				27A8D62D16DEC354002EC721 /* TreeScene.m in Sources */,
+				27A8D63016DFB95B002EC721 /* Tree.m in Sources */,
+				27A8D63316DFBD61002EC721 /* ForestScene.m in Sources */,
+				27A8D63616DFC0C2002EC721 /* OptimizedTree.m in Sources */,
+				27A8D64116DFD0C2002EC721 /* VelocityScene.m in Sources */,
+				27A8D64516DFD29E002EC721 /* AccelerationScene.m in Sources */,
+				27A8D64816DFD4C7002EC721 /* RotatingTreeScene.m in Sources */,
+				27A8D64C16DFEC02002EC721 /* DSAnimation.m in Sources */,
+				27A8D64F16DFF1D2002EC721 /* ManuallyMovedTreet.m in Sources */,
+				27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */,
+				27A8D65D16E00372002EC721 /* DSSpriteAnimation.m in Sources */,
+				27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */,
+				27A8D6A216E103CA002EC721 /* MainViewController.m in Sources */,
+				27A8D6AD16E10E54002EC721 /* TempViewController.m in Sources */,
+				27A8D6EE16E11A5C002EC721 /* DSSceneController.m in Sources */,
+				27A8D6F116E11BDD002EC721 /* DSTriangle.m in Sources */,
+				27A8D6F316E11C59002EC721 /* DSRegularPolygon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
-#import "EEScene.h"
+#import "MainViewController.h"
 
-@interface EEAppDelegate : UIResponder <UIApplicationDelegate, GLKViewDelegate, GLKViewControllerDelegate>
+@interface EEAppDelegate : UIResponder <UIApplicationDelegate>
 {
-    EEScene *scene;
+    //EEScene *scene;
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) MainViewController *mainViewController;
 
 @end
