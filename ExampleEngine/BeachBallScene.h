@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EEElipse.h"
+#import "DSScene.h"
+#import "DSElipse.h"
 
-@interface BeachBallScene : EEScene
+@interface BeachBallScene : DSScene
 {
-    EEElipse *ellipse;
+    DSElipse *ellipse;
 }
 
 @end

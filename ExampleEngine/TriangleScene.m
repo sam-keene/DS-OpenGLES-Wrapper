@@ -13,7 +13,7 @@
     self = [super init];
     if (self) {
         NSLog(@"*** init Triangle 1");
-        triangle = [[EETriangle alloc] init];
+        triangle = [[DSTriangle alloc] init];
         
         //draws the verticies
         triangle.vertices[0] = GLKVector2Make(-1, -1);

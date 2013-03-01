@@ -12,7 +12,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        polygon = [[EERegularPolygon alloc] initWithNumSides:6];
+        polygon = [[DSRegularPolygon alloc] initWithNumSides:6];
         polygon.radius = 1;
         
         //add color by assigning it to the shape in the scene

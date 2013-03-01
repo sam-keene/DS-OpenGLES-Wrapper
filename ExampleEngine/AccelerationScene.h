@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
+#import "DSScene.h"
 
-@interface AccelerationScene : EEScene
+@interface AccelerationScene : DSScene
 
 @end

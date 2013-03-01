@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EETriangle.h"
-@interface TriangleScene : EEScene {
-    EETriangle *triangle;
+#import "DSScene.h"
+#import "DSTriangle.h"
+@interface TriangleScene : DSScene {
+    DSTriangle *triangle;
 }
 @end

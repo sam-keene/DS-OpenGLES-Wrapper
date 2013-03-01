@@ -13,7 +13,7 @@
 -(id)init {
         self = [super init];
         if (self) {
-            triangle = [[EETriangle alloc] init];
+            triangle = [[DSTriangle alloc] init];
             
             triangle.vertices[0] = GLKVector2Make(-1, -1);
             triangle.vertices[1] = GLKVector2Make( 1, -1);

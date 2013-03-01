@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EESceneController.h"
+#import "DSSceneController.h"
 #import "ComplexAnimationScenen.h"
 
-@interface EESceneController ()
+@interface DSSceneController ()
 
 @end
 
-@implementation EESceneController
+@implementation DSSceneController
 @synthesize context = _context;
 
 
@@ -22,14 +22,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"EESceneController initWithNibName");
+        NSLog(@"DSSceneController initWithNibName");
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    NSLog(@"EESceneController viewDidLoad");
+    NSLog(@"DSSceneController viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [super viewDidLoad];
@@ -67,7 +67,7 @@
     self.context = nil;
 }
 
-// EESceneController.m
+// DSSceneController.m
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);

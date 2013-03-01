@@ -7,14 +7,14 @@
 //
 
 #import "AccelerationScene.h"
-#import "EEElipse.h"
+#import "DSElipse.h"
 
 @implementation AccelerationScene
 -(id)init
 {
     self = [super init];
     if (self) {
-        EEElipse *ball = [[EEElipse alloc] init];
+        DSElipse *ball = [[DSElipse alloc] init];
         ball.radiusX = 0.2;
         ball.radiusY = 0.2;
         ball.color = GLKVector4Make(1, 0, 0, 1);

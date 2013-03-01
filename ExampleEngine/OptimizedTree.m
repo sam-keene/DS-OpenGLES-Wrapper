@@ -34,9 +34,9 @@
 -(id)init {
     self = [super init];
     if (self) {
-        prototype = [[EERectangle alloc] init];
-        ((EERectangle*)prototype).width = 0.4;
-        ((EERectangle*)prototype).height = 1;
+        prototype = [[DSRectangle alloc] init];
+        ((DSRectangle*)prototype).width = 0.4;
+        ((DSRectangle*)prototype).height = 1;
         prototype.position = GLKVector2Make(0, -1.25);
         prototype.color = GLKVector4Make(0.4, 0.1, 0, 1);
     }
@@ -48,7 +48,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        prototype = [[EETriangle alloc] init];
+        prototype = [[DSTriangle alloc] init];
         prototype.vertices[0] = GLKVector2Make(-1, 0);
         prototype.vertices[1] = GLKVector2Make( 1, 0);
         prototype.vertices[2] = GLKVector2Make( 0, 3);

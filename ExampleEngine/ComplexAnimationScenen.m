@@ -7,11 +7,11 @@
 //
 
 #import "ComplexAnimationScenen.h"
-#import "EERectangle.h"
-#import "EEAnimation.h"
+#import "DSRectangle.h"
+#import "DSAnimation.h"
 #import "Constants.h"
 #import "Tree.h"
-#import "EEElipse.h"
+#import "DSElipse.h"
 
 @implementation ComplexAnimationScenen
 -(id)init {
@@ -32,7 +32,7 @@
         }];
         [self.shapes addObject:tree];
         
-        EEElipse *ball = [[EEElipse alloc] init];
+        DSElipse *ball = [[DSElipse alloc] init];
         ball.radiusX = 1;
         ball.radiusY = 1;
         ball.color = GLKVector4Make(0.9, 0.1, 0.1, 1);
@@ -43,7 +43,7 @@
         
         /// OR CAN HARDCOE OUR ANIMATIONS LIEK THIS :
         /*
-        EERectangle *rectangle = [[EERectangle alloc] init];
+        DSRectangle *rectangle = [[DSRectangle alloc] init];
         rectangle.position = GLKVector2Make(-1, -1);
         rectangle.width = 2;
         rectangle.height = 1;
@@ -51,7 +51,7 @@
         rectangle.color = GLKVector4Make(1, 0, 0, .5);
         
         //FIRST ANIMATION
-        EEAnimation *complexAnimation = [[EEAnimation alloc] init];
+        DSAnimation *complexAnimation = [[DSAnimation alloc] init];
         complexAnimation.positionDelta = GLKVector2Make(2, 2);
         complexAnimation.scaleDelta = GLKVector2Make(1, -0.5);
         complexAnimation.rotationDelta = M_TAU;
@@ -60,7 +60,7 @@
         [rectangle.animations addObject:complexAnimation];
         
         //SECOND ANIMATION
-        EEAnimation *secondAnimation = [[EEAnimation alloc] init];
+        DSAnimation *secondAnimation = [[DSAnimation alloc] init];
         secondAnimation.positionDelta = GLKVector2Make(-1,-1);
         secondAnimation.rotationDelta = M_TAU;
         secondAnimation.colorDelta = GLKVector4Make(0, 1, 0, 0);

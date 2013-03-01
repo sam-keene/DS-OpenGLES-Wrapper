@@ -1,16 +1,16 @@
 //
-//  EERegularPolygon.m
-//  ExampleEngine
+//  DSRegularPolygon.m
+//  ExamplDSngine
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam KDSne on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EERegularPolygon.h"
+#import "DSRegularPolygon.h"
 
 #define M_TAU (2*M_PI)
 
-@implementation EERegularPolygon
+@implementation DSRegularPolygon
 
 @synthesize numSides;
 
