@@ -37,6 +37,10 @@
 {
     // size of the 3D world/space
     return GLKMatrix4MakeOrtho(left, right, bottom, top, 5, -5);
+    
+    // FOR 3D perspective:
+    //float aspect = fabsf(4 / 3);
+    //return GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 10.0f, -10.0f);
 }
 
 -(void)update:(NSTimeInterval)dt {
