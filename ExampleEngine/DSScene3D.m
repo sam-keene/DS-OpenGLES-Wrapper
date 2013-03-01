@@ -1,15 +1,14 @@
 //
-//  DSScene.m
-//  ExampleEngine
+//  DSScene3D.m
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 3/1/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "DSScene.h"
-#import "DSShape.h"
-
-@implementation DSScene
+#import "DSScene3D.h"
+#import "DSShape3D.h"
+@implementation DSScene3D
 
 @synthesize left, right, bottom, top, shapes, clearColor;
 
@@ -40,7 +39,7 @@
 }
 
 -(void)update:(NSTimeInterval)dt {
-    [shapes enumerateObjectsUsingBlock:^(DSShape *shape, NSUInteger idx, BOOL *stop) {
+    [shapes enumerateObjectsUsingBlock:^(DSShape3D *shape, NSUInteger idx, BOOL *stop) {
         [shape update:dt];
     }];
 }

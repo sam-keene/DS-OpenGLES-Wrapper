@@ -7,13 +7,14 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "DSScene.h"
+#import "DSScene3D.h"
 
 @interface DSSceneController : GLKViewController
 {
     float _curRed;
     BOOL _increasing;
-    DSScene *scene;
+    DSScene3D *scene;
+    
 }
 
 @property (strong, nonatomic) EAGLContext *context;

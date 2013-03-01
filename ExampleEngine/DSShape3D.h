@@ -1,8 +1,8 @@
 //
-//  DSShape.h
-//  ExampleEngine
+//  DSShape3D.h
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 3/1/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
@@ -10,20 +10,21 @@
 #import <GLKit/GLKit.h>
 #import "DSScene.h"
 #import "DSSpriteAnimation.h"
+#import "DSShape.h"
 
-@interface DSShape : NSObject
+@interface DSShape3D : NSObject
 {
     NSMutableData *vertexData;
     NSMutableData *vertexColorData;
     NSMutableData *textureCoordinateData;
     GLKVector4 color;
     GLKTextureInfo *texture;
-    GLKVector2 position;
+    GLKVector3 position;
     GLKVector2 scale;
-    GLKVector2 velocity;
-    GLKVector2 acceleration;
+    GLKVector3 velocity;
+    GLKVector3 acceleration;
     GLKBaseEffect *effect;
-    DSShape *parent;
+    DSShape3D *parent;
     NSMutableArray *children;
     NSMutableArray *animations;
     DSSpriteAnimation *spriteAnimation;
@@ -43,11 +44,11 @@
 @property(readonly) GLKVector2 *textureCoordinates;
 @property GLKVector2 scale;
 @property GLKVector4 color;
-@property GLKVector2 position;
-@property GLKVector2 velocity;
-@property GLKVector2 acceleration;
+@property GLKVector3 position;
+@property GLKVector3 velocity;
+@property GLKVector3 acceleration;
 @property(strong, readonly) NSMutableArray *children;
-@property(strong) DSShape *parent;
+@property(strong) DSShape3D *parent;
 @property(strong,readonly) GLKTextureInfo *texture;
 @property(strong) GLKBaseEffect *effect;
 @property(strong, readonly) NSMutableArray *animations;
@@ -55,7 +56,7 @@
 
 -(void)renderInScene:(DSScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
--(void)addChild:(DSShape *)child;
+-(void)addChild:(DSShape3D *)child;
 -(void)update:(NSTimeInterval)dt;
 -(void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animationsBlock;
 
