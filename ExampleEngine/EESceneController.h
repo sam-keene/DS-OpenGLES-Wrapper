@@ -7,7 +7,15 @@
 //
 
 #import <GLKit/GLKit.h>
+#import "EEScene.h"
 
 @interface EESceneController : GLKViewController
+{
+    float _curRed;
+    BOOL _increasing;
+    EEScene *scene;
+}
+
+@property (strong, nonatomic) EAGLContext *context;
 
 @end

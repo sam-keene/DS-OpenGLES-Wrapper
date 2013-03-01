@@ -7,15 +7,17 @@
 //
 
 #import "EEAppDelegate.h"
-#import "EESceneController.h"
-#import "ComplexAnimationScenen.h"
-
+//#import "EESceneController.h"
+//#import "ComplexAnimationScenen.h"
+#import "MainViewController.h"
 @implementation EEAppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    return YES;
+    /*
   EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
   [EAGLContext setCurrentContext:context];
   
@@ -25,7 +27,9 @@
   EESceneController *controller = [[EESceneController alloc] init];
   controller.delegate = self;
   controller.view = view;
-  
+ 
+   
+    
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.rootViewController = controller;
   [self.window makeKeyAndVisible];
@@ -38,8 +42,19 @@
     scene.top    =  2;
     
   return YES;
+     */
+    
+    /*
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    return YES;
+     */
 }
 
+/*
 - (void)glkViewControllerUpdate:(GLKViewController *)controller {
     //NSLog(@"in glkViewControllerUpdate");
     //[scene update];
@@ -52,6 +67,7 @@
     // NSLog(@"in glkView:drawInRect:");
   [scene render];
 }
+*/
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

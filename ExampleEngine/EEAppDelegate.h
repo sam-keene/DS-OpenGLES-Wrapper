@@ -10,9 +10,9 @@
 #import <GLKit/GLKit.h>
 #import "EEScene.h"
 
-@interface EEAppDelegate : UIResponder <UIApplicationDelegate, GLKViewDelegate, GLKViewControllerDelegate>
+@interface EEAppDelegate : UIResponder <UIApplicationDelegate>
 {
-    EEScene *scene;
+    //EEScene *scene;
 }
 
 @property (strong, nonatomic) UIWindow *window;
