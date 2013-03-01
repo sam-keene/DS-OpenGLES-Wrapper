@@ -39,9 +39,11 @@
 		27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65116DFF5F5002EC721 /* ComplexAnimationScenen.m */; };
 		27A8D65D16E00372002EC721 /* EESpriteAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D65C16E00372002EC721 /* EESpriteAnimation.m */; };
 		27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D66016E0071F002EC721 /* FrameAnimationScene.m */; };
-		27A8D66916E00D90002EC721 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D66716E00D90002EC721 /* MainViewController.m */; };
-		27A8D66A16E00D91002EC721 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D66816E00D90002EC721 /* MainViewController.xib */; };
-		27A8D69E16E0FEBB002EC721 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D69D16E0FEBA002EC721 /* MainStoryboard.storyboard */; };
+		27A8D6A216E103CA002EC721 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6A016E103C8002EC721 /* MainViewController.m */; };
+		27A8D6A916E10C8C002EC721 /* EESceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6A816E10C8C002EC721 /* EESceneViewController.xib */; };
+		27A8D6AD16E10E54002EC721 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6AB16E10E53002EC721 /* TempViewController.m */; };
+		27A8D6AE16E10E54002EC721 /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6AC16E10E53002EC721 /* TempViewController.xib */; };
+		27A8D6EC16E1166F002EC721 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A8D6EB16E1166E002EC721 /* MainViewController.xib */; };
 		3C69616C13FAC12600540465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616B13FAC12600540465 /* UIKit.framework */; };
 		3C69616E13FAC12600540465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C69616D13FAC12600540465 /* Foundation.framework */; };
 		3C69617413FAC12600540465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C69617213FAC12600540465 /* InfoPlist.strings */; };
@@ -114,10 +116,13 @@
 		27A8D65C16E00372002EC721 /* EESpriteAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EESpriteAnimation.m; sourceTree = "<group>"; };
 		27A8D65F16E0071E002EC721 /* FrameAnimationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAnimationScene.h; sourceTree = "<group>"; };
 		27A8D66016E0071F002EC721 /* FrameAnimationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameAnimationScene.m; sourceTree = "<group>"; };
-		27A8D66616E00D90002EC721 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		27A8D66716E00D90002EC721 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		27A8D66816E00D90002EC721 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		27A8D69D16E0FEBA002EC721 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		27A8D69F16E103C8002EC721 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		27A8D6A016E103C8002EC721 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		27A8D6A816E10C8C002EC721 /* EESceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EESceneViewController.xib; sourceTree = "<group>"; };
+		27A8D6AA16E10E52002EC721 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = "<group>"; };
+		27A8D6AB16E10E53002EC721 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = "<group>"; };
+		27A8D6AC16E10E53002EC721 /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
+		27A8D6EB16E1166E002EC721 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
 		3C69616713FAC12600540465 /* DS-OpenGL-Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DS-OpenGL-Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C69616B13FAC12600540465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3C69616D13FAC12600540465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +250,7 @@
 			children = (
 				27A8D5D416DD5A96002EC721 /* EESceneController.h */,
 				27A8D5D516DD5A96002EC721 /* EESceneController.m */,
+				27A8D6A816E10C8C002EC721 /* EESceneViewController.xib */,
 				27A8D62316DEAC3D002EC721 /* EESprite.h */,
 				27A8D62416DEAC3D002EC721 /* EESprite.m */,
 				27A8D64916DFEBEA002EC721 /* Operations */,
@@ -252,6 +258,9 @@
 				27A8D60516DE9740002EC721 /* assets */,
 				27A8D5F216DD6A22002EC721 /* Shapes */,
 				27A8D5CD16DD55C4002EC721 /* Scenes */,
+				27A8D6AA16E10E52002EC721 /* TempViewController.h */,
+				27A8D6AB16E10E53002EC721 /* TempViewController.m */,
+				27A8D6AC16E10E53002EC721 /* TempViewController.xib */,
 			);
 			name = "DS-GL-Wrapper";
 			sourceTree = "<group>";
@@ -293,10 +302,9 @@
 				3C69617813FAC12600540465 /* EEAppDelegate.h */,
 				3C69617913FAC12600540465 /* EEAppDelegate.m */,
 				3C69617013FAC12600540465 /* Supporting Files */,
-				27A8D66616E00D90002EC721 /* MainViewController.h */,
-				27A8D66716E00D90002EC721 /* MainViewController.m */,
-				27A8D66816E00D90002EC721 /* MainViewController.xib */,
-				27A8D69D16E0FEBA002EC721 /* MainStoryboard.storyboard */,
+				27A8D69F16E103C8002EC721 /* MainViewController.h */,
+				27A8D6A016E103C8002EC721 /* MainViewController.m */,
+				27A8D6EB16E1166E002EC721 /* MainViewController.xib */,
 			);
 			path = ExampleEngine;
 			sourceTree = "<group>";
@@ -368,8 +376,9 @@
 				27A8D61116DEA3C9002EC721 /* ball.jpg in Resources */,
 				27A8D61316DEA5BE002EC721 /* triangle.jpg in Resources */,
 				27A8D62716DEAD1B002EC721 /* boy-sprite.png in Resources */,
-				27A8D66A16E00D91002EC721 /* MainViewController.xib in Resources */,
-				27A8D69E16E0FEBB002EC721 /* MainStoryboard.storyboard in Resources */,
+				27A8D6A916E10C8C002EC721 /* EESceneViewController.xib in Resources */,
+				27A8D6AE16E10E54002EC721 /* TempViewController.xib in Resources */,
+				27A8D6EC16E1166F002EC721 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +419,8 @@
 				27A8D65216DFF5F6002EC721 /* ComplexAnimationScenen.m in Sources */,
 				27A8D65D16E00372002EC721 /* EESpriteAnimation.m in Sources */,
 				27A8D66116E0071F002EC721 /* FrameAnimationScene.m in Sources */,
-				27A8D66916E00D90002EC721 /* MainViewController.m in Sources */,
+				27A8D6A216E103CA002EC721 /* MainViewController.m in Sources */,
+				27A8D6AD16E10E54002EC721 /* TempViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

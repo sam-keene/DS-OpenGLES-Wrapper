@@ -16,17 +16,20 @@
 @implementation EESceneController
 @synthesize context = _context;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"EESceneController initWithNibName");
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"EESceneController viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [super viewDidLoad];
@@ -72,35 +75,25 @@
 
 #pragma mark - GLKViewDelegate
 
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
+{
     
-    /*
-    glClearColor(_curRed, 0.0, 0.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-     */
     [scene render];
     
 }
 
 #pragma mark - GLKViewControllerDelegate
 
-- (void)update {
-    /*
-    if (_increasing) {
-        _curRed += 1.0 * self.timeSinceLastUpdate;
-    } else {
-        _curRed -= 1.0 * self.timeSinceLastUpdate;
-    }
-    if (_curRed >= 1.0) {
-        _curRed = 1.0;
-        _increasing = NO;
-    }
-    if (_curRed <= 0.0) {
-        _curRed = 0.0;
-        _increasing = YES;
-    }
-     */
+- (void)update
+{
     [scene update:self.timeSinceLastUpdate];
 }
+
+//pauses the GL Render on tap:
+/*
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.paused = !self.paused;
+}
+ */
 
 @end
