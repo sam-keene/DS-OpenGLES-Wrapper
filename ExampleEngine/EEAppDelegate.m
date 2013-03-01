@@ -7,49 +7,22 @@
 //
 
 #import "EEAppDelegate.h"
-#import "EESceneController.h"
-#import "RegularPolygonScene.h"
 
 @implementation EEAppDelegate
 
 @synthesize window = _window;
+@synthesize navigationController = _navigationController;
+@synthesize mainViewController = _mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-  [EAGLContext setCurrentContext:context];
-  
-  GLKView *view = [[GLKView alloc] initWithFrame:[[UIScreen mainScreen] bounds] context:context];
-  view.delegate = self;
-  
-  EESceneController *controller = [[EESceneController alloc] init];
-  controller.delegate = self;
-  controller.view = view;
-  
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  self.window.rootViewController = controller;
-  [self.window makeKeyAndVisible];
-  
-    scene = [[RegularPolygonScene alloc] init];
-    scene.clearColor = GLKVector4Make(0.1, 0.9, 0.9, 0.0);
-    scene.left   = -3;
-    scene.right  =  3;
-    scene.bottom = -2;
-    scene.top    =  2;
-    
-    
-    
-  return YES;
-}
-
-- (void)glkViewControllerUpdate:(GLKViewController *)controller {
-    //NSLog(@"in glkViewControllerUpdate");
-    [scene update];
-}
-
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    // NSLog(@"in glkView:drawInRect:");
-  [scene render];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    return YES;
+ 
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

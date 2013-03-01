@@ -1,5 +1,5 @@
 //
-//  RegularPolygonScene.h
+//  DSElipseScene.h
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
@@ -7,9 +7,10 @@
 //
 
 #import "DSScene.h"
-#import "DSRegularPolygon.h"
-@interface RegularPolygonScene : DSScene{
-    DSRegularPolygon*polygon;
+#import "DSElipse.h"
+
+@interface DSElipseScene : DSScene{
+    DSElipse *ellipse;
 }
 
 @end

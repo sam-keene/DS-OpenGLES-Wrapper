@@ -1,28 +1,26 @@
 //
-//  RectangleScene.m
+//  DSElipseScene.m
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "RectangleScene.h"
+#import "DSElipseScene.h"
 
-@implementation RectangleScene
-
+@implementation DSElipseScene
 -(id)init {
     self = [super init];
     if (self) {
-        rectangle = [[DSRectangle alloc] init];
-        rectangle.width = 2;
-        rectangle.height = 1;
+        ellipse = [[DSElipse alloc] init];
+        ellipse.radiusX = 2;
+        ellipse.radiusY = 1;
     }
     return self;
 }
 
 -(void)render {
     [super render];
-    [rectangle renderInScene:self];
+    [ellipse renderInScene:self];
 }
-
 @end
