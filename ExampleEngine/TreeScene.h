@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EETriangle.h"
-#import "EERectangle.h"
+#import "DSScene.h"
+#import "DSTriangle.h"
+#import "DSRectangle.h"
 
-@interface TreeScene : EEScene {
-    //EETriangle *leaves;
-    //EERectangle *trunk;
+@interface TreeScene : DSScene {
+    //DSTriangle *leaves;
+    //DSRectangle *trunk;
 }
 
 @end

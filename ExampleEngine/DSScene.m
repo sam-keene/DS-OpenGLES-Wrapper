@@ -1,15 +1,15 @@
 //
-//  EEScene.m
+//  DSScene.m
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EEShape.h"
+#import "DSScene.h"
+#import "DSShape.h"
 
-@implementation EEScene
+@implementation DSScene
 
 @synthesize left, right, bottom, top, shapes, clearColor;
 
@@ -23,7 +23,7 @@
 
 -(void)update
 {
-    //NSLog(@"in EEScene's update %f", ((CGFloat)(rand()%1000)/1000));
+    //NSLog(@"in DSScene's update %f", ((CGFloat)(rand()%1000)/1000));
 }
 
 -(void)render
@@ -48,7 +48,7 @@
 }
 
 -(void)update:(NSTimeInterval)dt {
-    [shapes enumerateObjectsUsingBlock:^(EEShape *shape, NSUInteger idx, BOOL *stop) {
+    [shapes enumerateObjectsUsingBlock:^(DSShape *shape, NSUInteger idx, BOOL *stop) {
         [shape update:dt];
     }];
 }

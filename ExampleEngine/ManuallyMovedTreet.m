@@ -8,7 +8,7 @@
 
 #import "ManuallyMovedTreet.h"
 #import "Tree.h"
-#import "EEAnimation.h"
+#import "DSAnimation.h"
 
 @implementation ManuallyMovedTreet
 -(id)init {
@@ -17,7 +17,7 @@
         Tree *tree = [[Tree alloc] init];
         tree.position = GLKVector2Make(-1.5,0);
         
-        EEAnimation *moveRightAnimation = [[EEAnimation alloc] init];
+        DSAnimation *moveRightAnimation = [[DSAnimation alloc] init];
         moveRightAnimation.positionDelta = GLKVector2Make(3, 0);
         moveRightAnimation.duration = 3;
         [tree.animations addObject:moveRightAnimation];

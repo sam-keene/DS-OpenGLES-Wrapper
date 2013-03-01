@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEShape.h"
+#import "DSShape.h"
 
-@interface EERegularPolygon : EEShape {
+@interface DSRegularPolygon : DSShape {
     int numSides;
     float radius;
 }

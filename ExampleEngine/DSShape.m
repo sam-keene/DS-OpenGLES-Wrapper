@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEShape.h"
-#import "EEAnimation.h"
+#import "DSShape.h"
+#import "DSAnimation.h"
 
-@implementation EEShape
+@implementation DSShape
 @synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
 
 //set the defaults
@@ -54,7 +54,7 @@
     return [vertexData mutableBytes];
 }
 
--(void)renderInScene:(EEScene *)scene
+-(void)renderInScene:(DSScene *)scene
 {
     //enable transparency
     //check out this link for more info on GL transparencies:
@@ -205,7 +205,7 @@
 /*
 add child adds the shape with it's vertex arrays to this array so we can cycle through it
  */
--(void)addChild:(EEShape *)child
+-(void)addChild:(DSShape *)child
 {
     child.parent = self;
     [children addObject:child];
@@ -214,13 +214,13 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
 -(void)update:(NSTimeInterval)dt
 {
     //loop through the object’s animations and ask each one to update the shape’s attributes. This is the same strategy as DSScene‘s asking each object to update itself.
-    [self.animations enumerateObjectsUsingBlock:^(EEAnimation *animation, NSUInteger idx, BOOL *stop) {
+    [self.animations enumerateObjectsUsingBlock:^(DSAnimation *animation, NSUInteger idx, BOOL *stop) {
         [animation animateShape:self dt:dt];
     }];
     
     //filter the shape’s animations array to only keep animations that have not yet finished.
     [self.animations filterUsingPredicate:
-     [NSPredicate predicateWithBlock:^BOOL(EEAnimation *animation, NSDictionary *bindings) {
+     [NSPredicate predicateWithBlock:^BOOL(DSAnimation *animation, NSDictionary *bindings) {
         return animation.elapsedTime <= animation.duration;
     }]
      ];
@@ -253,7 +253,7 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
     animationsBlock();
     
     //create animation with deltas based on the difference between the desired values and the current values of our attributes.
-    EEAnimation *animation = [[EEAnimation alloc] init];
+    DSAnimation *animation = [[DSAnimation alloc] init];
     animation.positionDelta = GLKVector2Subtract(self.position, currentPosition);
     animation.scaleDelta = GLKVector2Subtract(self.scale, currentScale);
     animation.rotationDelta = self.rotation - currentRotation;

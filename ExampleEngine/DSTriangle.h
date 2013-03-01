@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEShape.h"
+#import "DSShape.h"
 
-@interface EETriangle : EEShape
+@interface DSTriangle : DSShape
 
 @end

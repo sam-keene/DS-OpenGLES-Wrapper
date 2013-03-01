@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEScene.h"
-#import "EESprite.h"
-@interface SpriteScene : EEScene
+#import "DSScene.h"
+#import "DSSprite.h"
+@interface SpriteScene : DSScene
 {
-    EESprite *sprite;
+    DSSprite *sprite;
 }
 
 @end

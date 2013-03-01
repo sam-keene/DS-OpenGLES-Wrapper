@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "EESceneController.h"
+#import "DSSceneController.h"
 #import "TempViewController.h"
 
 @interface MainViewController ()
@@ -43,7 +43,7 @@
 - (IBAction)btnTapped:(id)sender
 {
     NSLog(@"**** PUSH THE GLKitVC");
-    EESceneController *eESceneController = [[EESceneController alloc] init];
+    DSSceneController *eESceneController = [[DSSceneController alloc] init];
     [self.navigationController pushViewController:eESceneController animated:YES];
 }
 

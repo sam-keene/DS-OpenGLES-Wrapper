@@ -13,7 +13,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        rectangle = [[EERectangle alloc] init];
+        rectangle = [[DSRectangle alloc] init];
         rectangle.width = 6;
         rectangle.height = 4;
         

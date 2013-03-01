@@ -1,5 +1,5 @@
 //
-//  EESceneController.h
+//  DSSceneController.h
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
@@ -7,13 +7,13 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "EEScene.h"
+#import "DSScene.h"
 
-@interface EESceneController : GLKViewController
+@interface DSSceneController : GLKViewController
 {
     float _curRed;
     BOOL _increasing;
-    EEScene *scene;
+    DSScene *scene;
 }
 
 @property (strong, nonatomic) EAGLContext *context;

@@ -1,18 +1,18 @@
 //
-//  EEElipseScene.m
+//  DSElipseScene.m
 //  ExampleEngine
 //
 //  Created by Sam Keene on 2/26/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "EEElipseScene.h"
+#import "DSElipseScene.h"
 
-@implementation EEElipseScene
+@implementation DSElipseScene
 -(id)init {
     self = [super init];
     if (self) {
-        ellipse = [[EEElipse alloc] init];
+        ellipse = [[DSElipse alloc] init];
         ellipse.radiusX = 2;
         ellipse.radiusY = 1;
     }

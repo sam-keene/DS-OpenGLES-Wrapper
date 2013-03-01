@@ -1,15 +1,15 @@
 //
-//  EESpriteAnimation.h
+//  DSSpriteAnimation.h
 //  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/28/13.
+//  Created by Sam KDSne on 2/28/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface EESpriteAnimation : NSObject {
+@interface DSSpriteAnimation : NSObject {
     float elapsedTime;
     NSArray *frames;
     float timePerFrame;
