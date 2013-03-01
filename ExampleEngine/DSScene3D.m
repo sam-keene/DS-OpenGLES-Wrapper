@@ -35,7 +35,8 @@
 
 -(GLKMatrix4)projectionMatrix
 {
-    return GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
+    // size of the 3D world/space
+    return GLKMatrix4MakeOrtho(left, right, bottom, top, 5, -5);
 }
 
 -(void)update:(NSTimeInterval)dt {
