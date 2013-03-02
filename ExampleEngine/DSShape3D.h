@@ -38,7 +38,7 @@
 @property BOOL useConstantColor;
 @property(readonly) int numVertices;
 @property(readonly) GLKMatrix4 modelviewMatrix;
-@property(readonly) GLKVector2 *vertices;
+@property(readonly) GLKVector3 *vertices;
 @property(readonly) GLKVector3 *vertices3D;
 @property(readonly) GLKVector4 *vertexColors;
 @property(readonly) GLKVector2 *textureCoordinates;

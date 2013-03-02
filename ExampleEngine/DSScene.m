@@ -36,7 +36,14 @@
 
 -(GLKMatrix4)projectionMatrix
 {
-    return GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
+    //float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
+    float aspect = fabsf(480.0 / 320.0);
+   // GLKMatrix4MakePerspective( GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
+    //self.effect.transform.projectionMatrix = projectionMatrix;
+    
+   
+     return GLKMatrix4MakePerspective( GLKMathDegreesToRadians(65.0f), aspect, -10.0f, 10.0f);
+     //return GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
 }
 
 -(void)update:(NSTimeInterval)dt {
