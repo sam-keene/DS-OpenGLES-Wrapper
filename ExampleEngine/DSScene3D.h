@@ -1,15 +1,15 @@
 //
-//  DSScene.h
-//  ExampleEngine
+//  DSScene3D.h
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 3/1/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface DSScene : NSObject
+@interface DSScene3D : NSObject
 {
     GLKVector4 clearColor;
     float left, right, bottom, top;
