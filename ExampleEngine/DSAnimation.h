@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 #import "DSShape.h"
+#import "DSShape3D.h"
 
 @interface DSAnimation : NSObject
 {
@@ -18,6 +19,7 @@
     
     NSTimeInterval duration, elapsedTime;
     GLKVector2 positionDelta;
+    GLKVector3 positionDelta3D;
 }
 
 @property NSTimeInterval duration;
@@ -27,6 +29,10 @@
 @property GLKVector2 scaleDelta;
 @property GLKVector4 colorDelta;
 
+//3D stuff
+@property GLKVector3 positionDelta3D;
+
 -(void)animateShape:(DSShape *)shape dt:(NSTimeInterval)dt;
+-(void)animateShape3D:(DSShape3D *)shape dt:(NSTimeInterval)dt;
 
 @end

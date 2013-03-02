@@ -1,15 +1,14 @@
 //
-//  DSScene.m
-//  ExampleEngine
+//  DSScene3D.m
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 3/1/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "DSScene.h"
-#import "DSShape.h"
-
-@implementation DSScene
+#import "DSScene3D.h"
+#import "DSShape3D.h"
+@implementation DSScene3D
 
 @synthesize left, right, bottom, top, shapes, clearColor;
 
@@ -36,18 +35,16 @@
 
 -(GLKMatrix4)projectionMatrix
 {
-    //float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
-    float aspect = fabsf(480.0 / 320.0);
-   // GLKMatrix4MakePerspective( GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
-    //self.effect.transform.projectionMatrix = projectionMatrix;
+    // size of the 3D world/space
+    return GLKMatrix4MakeOrtho(left, right, bottom, top, 5, -5);
     
-   
-     return GLKMatrix4MakePerspective( GLKMathDegreesToRadians(65.0f), aspect, -10.0f, 10.0f);
-     //return GLKMatrix4MakeOrtho(left, right, bottom, top, 1, -1);
+    // FOR 3D perspective:
+    //float aspect = fabsf(4 / 3);
+    //return GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 10.0f, -10.0f);
 }
 
 -(void)update:(NSTimeInterval)dt {
-    [shapes enumerateObjectsUsingBlock:^(DSShape *shape, NSUInteger idx, BOOL *stop) {
+    [shapes enumerateObjectsUsingBlock:^(DSShape3D *shape, NSUInteger idx, BOOL *stop) {
         [shape update:dt];
     }];
 }

@@ -7,7 +7,7 @@
 //
 
 #import "DSSceneController.h"
-#import "ComplexAnimationScenen.h"
+#import "CubeScene.h"
 
 @interface DSSceneController ()
 
@@ -15,7 +15,6 @@
 
 @implementation DSSceneController
 @synthesize context = _context;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +43,7 @@
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     
-    scene = [[ComplexAnimationScenen alloc] init];
+    scene = [[CubeScene alloc] init];
     scene.clearColor = GLKVector4Make(0.1, 0.9, 0.9, 0.0);
     scene.left   = -3;
     scene.right  =  3;

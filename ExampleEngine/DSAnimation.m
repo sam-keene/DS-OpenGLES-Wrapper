@@ -18,9 +18,10 @@
 
 #import "DSAnimation.h"
 #import "DSShape.h"
+#import "DSShape3D.h"
 
 @implementation DSAnimation
-@synthesize duration, elapsedTime, positionDelta, rotationDelta, scaleDelta, colorDelta;
+@synthesize duration, elapsedTime, positionDelta, rotationDelta, scaleDelta, colorDelta, positionDelta3D;
 
 -(id)init
 {
@@ -56,5 +57,28 @@
     shape.scale = GLKVector2Add(shape.scale, scaleIncrement);
     
     shape.rotation += self.rotationDelta * fractionOfDuration;
+}
+
+-(void)animateShape3D:(DSShape3D *)aShape dt:(NSTimeInterval)dt
+{
+    self.elapsedTime += dt;
+    
+    //adjust our time step to make sure we don’t overshoot our expected value.
+    if (self.elapsedTime > self.duration)
+        dt -= self.elapsedTime - self.duration;
+    
+    float fractionOfDuration = dt/self.duration;
+    
+    GLKVector3 positionIncrement = GLKVector3MultiplyScalar(self.positionDelta3D, fractionOfDuration);
+    aShape.position = GLKVector3Add(aShape.position, positionIncrement);
+    
+    GLKVector4 colorIncrement = GLKVector4MultiplyScalar(self.colorDelta, fractionOfDuration);
+    aShape.color = GLKVector4Add(aShape.color, colorIncrement);
+    
+    GLKVector2 scaleIncrement = GLKVector2MultiplyScalar(self.scaleDelta, fractionOfDuration);
+    aShape.scale = GLKVector2Add(aShape.scale, scaleIncrement);
+    
+    aShape.rotation += self.rotationDelta * fractionOfDuration;
+    
 }
 @end
