@@ -1,15 +1,16 @@
 //
-//  EEShape.m
-//  ExampleEngine
+//  DSShape3D.m
+//  DS-OpenGL-Wrapper
 //
-//  Created by Sam Keene on 2/26/13.
+//  Created by Sam Keene on 3/1/13.
 //  Copyright (c) 2013 Ian Terrell. All rights reserved.
 //
 
-#import "DSShape.h"
+#import "DSShape3D.h"
 #import "DSAnimation.h"
 
-@implementation DSShape
+
+@implementation DSShape3D
 @synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
 
 //set the defaults
@@ -29,7 +30,7 @@
         texture = nil;
         
         // Center on the origin
-        position = GLKVector2Make(0,0);
+        position = GLKVector3Make(0,0,0);
         
         // Don't rotate
         rotation = 0;
@@ -47,10 +48,10 @@
     return 0;
 }
 
-- (GLKVector2 *)vertices
+- (GLKVector3 *)vertices
 {
     if (vertexData == nil)
-        vertexData = [NSMutableData dataWithLength:sizeof(GLKVector2)*self.numVertices];
+        vertexData = [NSMutableData dataWithLength:sizeof(GLKVector3)*self.numVertices];
     return [vertexData mutableBytes];
 }
 
@@ -68,6 +69,7 @@
         self.effect.constantColor = self.color;
     }
     
+    
     //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
     if (self.texture != nil) {
         effect.texture2d0.envMode = GLKTextureEnvModeReplace;
@@ -77,6 +79,7 @@
         else
             effect.texture2d0.name = self.texture.name;
     }
+    
     
     //enable the texture data and send it to GL in the same ways as for colors and positions
     //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
@@ -96,7 +99,9 @@
     
     // Tell OpenGL that we'll be using vertex position data
     glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, 0, self.vertices3D);
+    
+    //changing the second input value to 3 makes the projection 3D
+    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 0, self.vertices3D);
     
     //use vertex color, so GL interpollates colors as gradients between verticies
     // If we're using vertex coloring, tell OpenGL that we'll be using vertex color data
@@ -163,7 +168,7 @@
  This defines where and how the texture is placed on the shape. OpenGL uses a normalized coordinate system for texture coordinates, with an origin in the lower left of an image. And instead of using x and y, since those are already used for position data, the convention is to refer to the coordinates as s and t.
  The word “normalized” means that the coordinate system only goes from 0 to 1; the right side of the texture image is at s=1, and the top is at t=1.
  
-    GL 0,0 is bottom left
+ GL 0,0 is bottom left
  */
 - (GLKVector2 *)textureCoordinates
 {
@@ -179,23 +184,24 @@
  - set positional data for the "world space", as opposed to object space
  - we can only have one modelview matrix per object, so use GLKMatrix4Multiply to combine into a single matrix.
  - these happen in order, so changing their order will change the outcome
-  effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, 0);
+ effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, 0);
  */
 -(GLKMatrix4)modelviewMatrix
 {
-    GLKMatrix4 modelviewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeTranslation(position.x, position.y, 0),
-                                                    GLKMatrix4MakeRotation(rotation, 0, 0, 1));
+    GLKMatrix4 modelviewMatrix = GLKMatrix4Multiply(GLKMatrix4MakeTranslation(position.x, position.y, position.z),
+                                                    GLKMatrix4MakeRotation(rotation, rotation, 0, 1));
     modelviewMatrix = GLKMatrix4Multiply(modelviewMatrix, GLKMatrix4MakeScale(scale.x, scale.y, 1));
     
     if (self.parent != nil)
         modelviewMatrix = GLKMatrix4Multiply(self.parent.modelviewMatrix, modelviewMatrix);
     
     return modelviewMatrix;
+    
 }
 /*
-add child adds the shape with it's vertex arrays to this array so we can cycle through it
+ add child adds the shape with it's vertex arrays to this array so we can cycle through it
  */
--(void)addChild:(DSShape *)child
+-(void)addChild:(DSShape3D *)child
 {
     child.parent = self;
     [children addObject:child];
@@ -205,7 +211,7 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
 {
     //loop through the object’s animations and ask each one to update the shape’s attributes. This is the same strategy as DSScene‘s asking each object to update itself.
     [self.animations enumerateObjectsUsingBlock:^(DSAnimation *animation, NSUInteger idx, BOOL *stop) {
-        [animation animateShape:self dt:dt];
+        [animation animateShape3D:self dt:dt];
     }];
     
     //filter the shape’s animations array to only keep animations that have not yet finished.
@@ -220,12 +226,12 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
     rotation += angularVelocity * dt;
     
     // add acceleration
-    GLKVector2 changeInVelocity = GLKVector2MultiplyScalar(self.acceleration, dt);
-    self.velocity = GLKVector2Add(self.velocity, changeInVelocity);
+    GLKVector3 changeInVelocity = GLKVector3MultiplyScalar(self.acceleration, dt);
+    self.velocity = GLKVector3Add(self.velocity, changeInVelocity);
     
-    GLKVector2 distanceTraveled = GLKVector2MultiplyScalar(self.velocity, dt);
+    GLKVector3 distanceTraveled = GLKVector3MultiplyScalar(self.velocity, dt);
     //the next line could be written a lot easier on C++ as position+=velocity*dt
-    self.position = GLKVector2Add(self.position, distanceTraveled);
+    self.position = GLKVector3Add(self.position, distanceTraveled);
     
     [spriteAnimation update:dt];
 }
@@ -234,7 +240,7 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
 -(void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animationsBlock
 {
     //the current values of our animatable attributes
-    GLKVector2 currentPosition = self.position;
+    GLKVector3 currentPosition = self.position;
     GLKVector2 currentScale = self.scale;
     GLKVector4 currentColor = self.color;
     float currentRotation = self.rotation;
@@ -244,7 +250,7 @@ add child adds the shape with it's vertex arrays to this array so we can cycle t
     
     //create animation with deltas based on the difference between the desired values and the current values of our attributes.
     DSAnimation *animation = [[DSAnimation alloc] init];
-    animation.positionDelta = GLKVector2Subtract(self.position, currentPosition);
+    animation.positionDelta3D = GLKVector3Subtract(self.position, currentPosition);
     animation.scaleDelta = GLKVector2Subtract(self.scale, currentScale);
     animation.rotationDelta = self.rotation - currentRotation;
     animation.colorDelta = GLKVector4Subtract(self.color, currentColor);
