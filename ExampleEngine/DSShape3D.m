@@ -9,66 +9,6 @@
 #import "DSShape3D.h"
 #import "DSAnimation.h"
 
-typedef struct {
-    float Position[3];
-    float Color[4];
-    float TexCoord[2];
-    float Normal[3];
-} Vertex;
-
-const Vertex Vertices[] = {
-    // Front
-    {{1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}},
-    {{1, 1, 1}, {0, 1, 0, 1}, {1, 1}, {0, 0, 1}},
-    {{-1, 1, 1}, {0, 0, 1, 1}, {0, 1}, {0, 0, 1}},
-    {{-1, -1, 1}, {0, 0, 0, 1}, {0, 0}, {0, 0, 1}},
-    // Back
-    {{1, 1, -1}, {1, 0, 0, 1}, {0, 1}, {0, 0, -1}},
-    {{-1, -1, -1}, {0, 1, 0, 1}, {1, 0}, {0, 0, -1}},
-    {{1, -1, -1}, {0, 0, 1, 1}, {0, 0}, {0, 0, -1}},
-    {{-1, 1, -1}, {0, 0, 0, 1}, {1, 1}, {0, 0, -1}},
-    // Left
-    {{-1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {-1, 0, 0}},
-    {{-1, 1, 1}, {0, 1, 0, 1}, {1, 1}, {-1, 0, 0}},
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}, {-1, 0, 0}},
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {-1, 0, 0}},
-    // Right
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}, {1, 0, 0}},
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}, {1, 0, 0}},
-    {{1, 1, 1}, {0, 0, 1, 1}, {0, 1}, {1, 0, 0}},
-    {{1, -1, 1}, {0, 0, 0, 1}, {0, 0}, {1, 0, 0}},
-    // Top
-    {{1, 1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 1, 0}},
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}, {0, 1, 0}},
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}, {0, 1, 0}},
-    {{-1, 1, 1}, {0, 0, 0, 1}, {0, 0}, {0, 1, 0}},
-    // Bottom
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}, {0, -1, 0}},
-    {{1, -1, 1}, {0, 1, 0, 1}, {1, 1}, {0, -1, 0}},
-    {{-1, -1, 1}, {0, 0, 1, 1}, {0, 1}, {0, -1, 0}},
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {0, -1, 0}}
-};
-
-const GLubyte Indices[] = {
-    // Front
-    0, 1, 2,
-    2, 3, 0,
-    // Back
-    4, 6, 5,
-    4, 5, 7,
-    // Left
-    8, 9, 10,
-    10, 11, 8,
-    // Right
-    12, 13, 14,
-    14, 15, 12,
-    // Top
-    16, 17, 18,
-    18, 19, 16,
-    // Bottom
-    20, 21, 22,
-    22, 23, 20
-};
 
 @implementation DSShape3D
 @synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
@@ -129,7 +69,7 @@ const GLubyte Indices[] = {
         self.effect.constantColor = self.color;
     }
     
-    /*
+    
     //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
     if (self.texture != nil) {
         effect.texture2d0.envMode = GLKTextureEnvModeReplace;
@@ -139,7 +79,7 @@ const GLubyte Indices[] = {
         else
             effect.texture2d0.name = self.texture.name;
     }
-    */
+    
     
     //enable the texture data and send it to GL in the same ways as for colors and positions
     //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
@@ -150,9 +90,6 @@ const GLubyte Indices[] = {
     
     // Set up the projection matrix to fit the scene's boundaries
     self.effect.transform.projectionMatrix = scene.projectionMatrix;
-    //float aspect = fabsf(480.0 / 320.0);
-    //GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective( GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
-    //self.effect.transform.projectionMatrix = projectionMatrix;
     
     //model view matrix is used to display multiple shapesin the same context...
     self.effect.transform.modelviewMatrix = self.modelviewMatrix;
@@ -174,7 +111,7 @@ const GLubyte Indices[] = {
     }
     
     //// Draw our primitives!, draw the GL arrays for the shape, and use the Fan Style
-    glDrawArrays(GL_TRIANGLES, 0, self.numVertices);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, self.numVertices);
     //glDrawArrays(GL_TRIANGLES, 0, self.numVertices);
     
     
