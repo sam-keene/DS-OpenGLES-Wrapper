@@ -25,6 +25,7 @@
                   
          [self.shapes addObject:rectangle];
          */
+        /*
         DSCube *cube = [[DSCube alloc] init];
         cube.width = 2;
         cube.height = 1;
@@ -43,6 +44,11 @@
         //cube.color = GLKVector4Make(1, 0, 0, .5);
         
         [self.shapes addObject:cube];
+         */
+        
+        DSShape3D *shape3D = [[DSShape3D alloc]init];
+        [shape3D setTextureImage:[UIImage imageNamed:@"tile_floor.png"]];
+        [self.shapes addObject:shape3D];
     }
     return self;
 }

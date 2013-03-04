@@ -9,7 +9,74 @@
 #import "DSShape3D.h"
 #import "DSAnimation.h"
 
+typedef struct {
+    float Position[3];
+    float Color[4];
+    float TexCoord[2];
+} Vertex;
 
+const Vertex Vertices[] = {
+    // Front
+    {{1, -1, 1}, {1, 0, 0, 1}, {1, 0}},
+    {{1, 1, 1}, {0, 1, 0, 1}, {1, 1}},
+    {{-1, 1, 1}, {0, 0, 1, 1}, {0, 1}},
+    {{-1, -1, 1}, {0, 0, 0, 1}, {0, 0}},
+    // Back
+    {{1, 1, -1}, {1, 0, 0, 1}, {0, 1}},
+    {{-1, -1, -1}, {0, 1, 0, 1}, {1, 0}},
+    {{1, -1, -1}, {0, 0, 1, 1}, {0, 0}},
+    {{-1, 1, -1}, {0, 0, 0, 1}, {1, 1}},
+    // Left
+    {{-1, -1, 1}, {1, 0, 0, 1}, {1, 0}},
+    {{-1, 1, 1}, {0, 1, 0, 1}, {1, 1}},
+    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}},
+    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}},
+    // Right
+    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
+    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}},
+    {{1, 1, 1}, {0, 0, 1, 1}, {0, 1}},
+    {{1, -1, 1}, {0, 0, 0, 1}, {0, 0}},
+    // Top
+    {{1, 1, 1}, {1, 0, 0, 1}, {1, 0}},
+    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}},
+    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}},
+    {{-1, 1, 1}, {0, 0, 0, 1}, {0, 0}},
+    // Bottom
+    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
+    {{1, -1, 1}, {0, 1, 0, 1}, {1, 1}},
+    {{-1, -1, 1}, {0, 0, 1, 1}, {0, 1}},
+    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}}
+};
+
+const GLubyte Indices[] = {
+    // Front
+    0, 1, 2,
+    2, 3, 0,
+    // Back
+    4, 6, 5,
+    4, 5, 7,
+    // Left
+    8, 9, 10,
+    10, 11, 8,
+    // Right
+    12, 13, 14,
+    14, 15, 12,
+    // Top
+    16, 17, 18,
+    18, 19, 16,
+    // Bottom
+    20, 21, 22,
+    22, 23, 20
+};
+
+@interface DSShape3D (){
+    GLuint _vertexArray;
+    GLuint _vertexBuffer;
+    GLuint _indexBuffer;
+    float _rotation;
+}
+
+@end
 @implementation DSShape3D
 @synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
 
@@ -19,6 +86,7 @@
     self = [super init];
     if (self) {
         
+        /*
         animations = [[NSMutableArray alloc] init];
         //holds the childeren shapes
         children = [[NSMutableArray alloc] init];
@@ -39,6 +107,8 @@
         scale = GLKVector2Make(1,1);
         
         self.effect = [[GLKBaseEffect alloc] init];
+         */
+        [self setup3DShape];
     }
     return self;
 }
@@ -57,80 +127,10 @@
 
 -(void)renderInScene:(DSScene *)scene
 {
-    //enable transparency
-    //check out this link for more info on GL transparencies:
-    //http://www.opengl.org/archives/resources/faq/technical/transparency.htm
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
-    //use constant color, or "Flat, solid color"
-    if (useConstantColor) {
-        self.effect.useConstantColor = YES;
-        self.effect.constantColor = self.color;
-    }
-    
-    
-    //configure GLKBaseEffect, our texture effect, to handle the texture if there is one
-    if (self.texture != nil) {
-        effect.texture2d0.envMode = GLKTextureEnvModeReplace;
-        effect.texture2d0.target = GLKTextureTarget2D;
-        if (self.spriteAnimation != nil)
-            effect.texture2d0.name = [self.spriteAnimation currentFrame].name;
-        else
-            effect.texture2d0.name = self.texture.name;
-    }
-    
-    
-    //enable the texture data and send it to GL in the same ways as for colors and positions
-    //// If we have a texture, tell OpenGL that we'll be using texture coordinate data
-    if (self.texture != nil) {
-        glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, 0, self.textureCoordinates);
-    }
-    
-    // Set up the projection matrix to fit the scene's boundaries
-    self.effect.transform.projectionMatrix = scene.projectionMatrix;
-    
-    //model view matrix is used to display multiple shapesin the same context...
-    self.effect.transform.modelviewMatrix = self.modelviewMatrix;
-    
-    // Tell OpenGL that we're going to use this effect for our upcoming drawing
     [self.effect prepareToDraw];
     
-    // Tell OpenGL that we'll be using vertex position data
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    
-    //changing the second input value to 3 makes the projection 3D
-    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 0, self.vertices3D);
-    
-    //use vertex color, so GL interpollates colors as gradients between verticies
-    // If we're using vertex coloring, tell OpenGL that we'll be using vertex color data
-    if (!useConstantColor) {
-        glEnableVertexAttribArray(GLKVertexAttribColor);
-        glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, 0, self.vertexColors);
-    }
-    
-    //// Draw our primitives!, draw the GL arrays for the shape, and use the Fan Style
-    glDrawArrays(GL_TRIANGLE_FAN, 0, self.numVertices);
-    //glDrawArrays(GL_TRIANGLES, 0, self.numVertices);
-    
-    
-    // Cleanup: Done with position data
-    glDisableVertexAttribArray(GLKVertexAttribPosition);
-    
-    // Cleanup: Done with color data (only if we used it)r
-    if (!useConstantColor)
-        glDisableVertexAttribArray(GLKVertexAttribColor);
-    
-    // Cleanup: Done with texture data (only if we used it)
-    if (self.texture != nil)
-        glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
-    
-    //disable glBlend for transparencies
-    glDisable(GL_BLEND);
-    
-    // Draw our children recursively
-    [children makeObjectsPerformSelector:@selector(renderInScene:) withObject:scene];
+    glBindVertexArrayOES(_vertexArray);
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
 //we can store color data individually on each vertex and GL will extrapolate the colors inbetween
@@ -151,17 +151,18 @@
 //  LOAD THE TEXTURE using GLKTextureLoader
 -(void)setTextureImage:(UIImage *)image
 {
-    NSError *error;
-    
-    //GLKit flips the image on load, so its 0,0 corrdinate point lines up with UIKit, add this dic to stop it from flipping
-    NSDictionary *optionsDic = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:GLKTextureLoaderOriginBottomLeft];
-    
-    //loads the texture, 2nd param flips the image to be more consistent with UiKit 0,0 point
-    texture = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionsDic error:&error];
-    if (error) {
-        NSLog(@"Error loading texture from image: %@",error);
-    }
-    NSLog(@"*** setting texture");
+     NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
+     [NSNumber numberWithBool:YES],
+     GLKTextureLoaderOriginBottomLeft,
+     nil];
+     
+     NSError * error;
+    GLKTextureInfo * info = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];;//[GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
+     if (info == nil) {
+     NSLog(@"Error loading file: %@", [error localizedDescription]);
+     }
+     self.effect.texture2d0.name = info.name;
+     self.effect.texture2d0.enabled = true;
 }
 
 /*
@@ -209,31 +210,18 @@
 
 -(void)update:(NSTimeInterval)dt
 {
-    //loop through the object’s animations and ask each one to update the shape’s attributes. This is the same strategy as DSScene‘s asking each object to update itself.
-    [self.animations enumerateObjectsUsingBlock:^(DSAnimation *animation, NSUInteger idx, BOOL *stop) {
-        [animation animateShape3D:self dt:dt];
-    }];
+    //float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
+    float aspect = fabsf(4/3);
+    //projectionMatrix: The matrix used to transform position coordinates from eye space to projection space.
+    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
+    self.effect.transform.projectionMatrix = projectionMatrix;
     
-    //filter the shape’s animations array to only keep animations that have not yet finished.
-    [self.animations filterUsingPredicate:
-     [NSPredicate predicateWithBlock:^BOOL(DSAnimation *animation, NSDictionary *bindings) {
-        return animation.elapsedTime <= animation.duration;
-    }]
-     ];
-    
-    //angular velocity for rotation
-    angularVelocity += angularAcceleration * dt;
-    rotation += angularVelocity * dt;
-    
-    // add acceleration
-    GLKVector3 changeInVelocity = GLKVector3MultiplyScalar(self.acceleration, dt);
-    self.velocity = GLKVector3Add(self.velocity, changeInVelocity);
-    
-    GLKVector3 distanceTraveled = GLKVector3MultiplyScalar(self.velocity, dt);
-    //the next line could be written a lot easier on C++ as position+=velocity*dt
-    self.position = GLKVector3Add(self.position, distanceTraveled);
-    
-    [spriteAnimation update:dt];
+    //modelViewMatrix: The matrix used to transform position coordinates from world space to eye space.
+    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -6.0f);
+    _rotation += .90;// * self.timeSinceLastUpdate;
+    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(25), 1, 0, 0);
+    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(_rotation), 0, 1, 0);
+    self.effect.transform.modelviewMatrix = modelViewMatrix;
 }
 
 // FACTORY METHOD THAT STEALS SOME INSPIRATION FROM UIVIEW's ANIMATION METHODS
@@ -270,6 +258,56 @@
     if (vertexData == nil)
         vertexData = [NSMutableData dataWithLength:sizeof(GLKVector3)*self.numVertices];
     return [vertexData mutableBytes];
+}
+
+
+////   *************        NEW ABSTRACTED CODE FOR 3D      *************
+
+- (void)setup3DShape
+{
+    NSLog(@"***** setUp3DShape");
+    self.effect = [[GLKBaseEffect alloc] init];
+    
+    /*
+    NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithBool:YES],
+                              GLKTextureLoaderOriginBottomLeft,
+                              nil];
+    
+    NSError * error;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"tile_floor" ofType:@"png"];
+    GLKTextureInfo * info = [GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
+    if (info == nil) {
+        NSLog(@"Error loading file: %@", [error localizedDescription]);
+    }
+    self.effect.texture2d0.name = info.name;
+    self.effect.texture2d0.enabled = true;
+    */
+    
+    // generate vertex arrays
+    glGenVertexArraysOES(1, &_vertexArray);
+    glBindVertexArrayOES(_vertexArray);
+    
+    // generate vertex buffers
+    glGenBuffers(1, &_vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &_indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+    
+    // New lines (were previously in draw)
+    glEnableVertexAttribArray(GLKVertexAttribPosition);
+    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
+    glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+    glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
+    
+    // New line
+    glBindVertexArrayOES(0);
+    
 }
 
 @end

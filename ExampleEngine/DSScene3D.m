@@ -27,9 +27,19 @@
 
 -(void)render
 {
+    /*
     glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
     glClear(GL_COLOR_BUFFER_BIT);
     
+    [shapes makeObjectsPerformSelector:@selector(renderInScene:) withObject:self];
+     */
+    glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+    glClear(GL_COLOR_BUFFER_BIT);
+    
+    //[self.effect prepareToDraw];
+    
+    //glBindVertexArrayOES(_vertexArray);
+    // glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
     [shapes makeObjectsPerformSelector:@selector(renderInScene:) withObject:self];
 }
 
