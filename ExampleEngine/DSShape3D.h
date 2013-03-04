@@ -24,6 +24,10 @@
     GLKVector3 velocity;
     GLKVector3 acceleration;
     GLKBaseEffect *effect;
+    GLuint vertexArray;
+    GLuint vertexBuffer;
+    
+    GLuint indexBuffer;
     DSShape3D *parent;
     NSMutableArray *children;
     NSMutableArray *animations;
@@ -53,11 +57,14 @@
 @property(strong) GLKBaseEffect *effect;
 @property(strong, readonly) NSMutableArray *animations;
 @property(strong) DSSpriteAnimation *spriteAnimation;
+@property GLuint vertexArray;
+@property GLuint vertexBuffer;
+@property GLuint indexBuffer;
 
 -(void)renderInScene:(DSScene *)scene;
 -(void)setTextureImage:(UIImage *)image;
 -(void)addChild:(DSShape3D *)child;
 -(void)update:(NSTimeInterval)dt;
 -(void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animationsBlock;
-
+- (void)setup3DShape;
 @end

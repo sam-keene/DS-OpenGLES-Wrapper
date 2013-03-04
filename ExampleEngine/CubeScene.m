@@ -46,7 +46,11 @@
         [self.shapes addObject:cube];
          */
         
+        /*
         DSShape3D *shape3D = [[DSShape3D alloc]init];
+        [shape3D setTextureImage:[UIImage imageNamed:@"tile_floor.png"]];
+         */
+        DSCube *shape3D = [[DSCube alloc] init];
         [shape3D setTextureImage:[UIImage imageNamed:@"tile_floor.png"]];
         [self.shapes addObject:shape3D];
     }

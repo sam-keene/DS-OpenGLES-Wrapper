@@ -9,76 +9,18 @@
 #import "DSShape3D.h"
 #import "DSAnimation.h"
 
-typedef struct {
-    float Position[3];
-    float Color[4];
-    float TexCoord[2];
-} Vertex;
 
-const Vertex Vertices[] = {
-    // Front
-    {{1, -1, 1}, {1, 0, 0, 1}, {1, 0}},
-    {{1, 1, 1}, {0, 1, 0, 1}, {1, 1}},
-    {{-1, 1, 1}, {0, 0, 1, 1}, {0, 1}},
-    {{-1, -1, 1}, {0, 0, 0, 1}, {0, 0}},
-    // Back
-    {{1, 1, -1}, {1, 0, 0, 1}, {0, 1}},
-    {{-1, -1, -1}, {0, 1, 0, 1}, {1, 0}},
-    {{1, -1, -1}, {0, 0, 1, 1}, {0, 0}},
-    {{-1, 1, -1}, {0, 0, 0, 1}, {1, 1}},
-    // Left
-    {{-1, -1, 1}, {1, 0, 0, 1}, {1, 0}},
-    {{-1, 1, 1}, {0, 1, 0, 1}, {1, 1}},
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}},
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}},
-    // Right
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}},
-    {{1, 1, 1}, {0, 0, 1, 1}, {0, 1}},
-    {{1, -1, 1}, {0, 0, 0, 1}, {0, 0}},
-    // Top
-    {{1, 1, 1}, {1, 0, 0, 1}, {1, 0}},
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}},
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}},
-    {{-1, 1, 1}, {0, 0, 0, 1}, {0, 0}},
-    // Bottom
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
-    {{1, -1, 1}, {0, 1, 0, 1}, {1, 1}},
-    {{-1, -1, 1}, {0, 0, 1, 1}, {0, 1}},
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}}
-};
 
-const GLubyte Indices[] = {
-    // Front
-    0, 1, 2,
-    2, 3, 0,
-    // Back
-    4, 6, 5,
-    4, 5, 7,
-    // Left
-    8, 9, 10,
-    10, 11, 8,
-    // Right
-    12, 13, 14,
-    14, 15, 12,
-    // Top
-    16, 17, 18,
-    18, 19, 16,
-    // Bottom
-    20, 21, 22,
-    22, 23, 20
-};
-
-@interface DSShape3D (){
-    GLuint _vertexArray;
-    GLuint _vertexBuffer;
-    GLuint _indexBuffer;
+@interface DSShape3D ()
+{
+   
     float _rotation;
 }
 
 @end
+
 @implementation DSShape3D
-@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation;
+@synthesize color, useConstantColor, position, rotation, scale, parent, children, texture, velocity, acceleration, angularVelocity, angularAcceleration, animations, spriteAnimation, vertexArray, vertexBuffer, indexBuffer;
 
 //set the defaults
 -(id)init
@@ -86,36 +28,10 @@ const GLubyte Indices[] = {
     self = [super init];
     if (self) {
         
-        /*
-        animations = [[NSMutableArray alloc] init];
-        //holds the childeren shapes
-        children = [[NSMutableArray alloc] init];
-        // Draw with the color white
-        useConstantColor = YES;
-        color = GLKVector4Make(1,1,1,1);
         
-        // No texture
-        texture = nil;
-        
-        // Center on the origin
-        position = GLKVector3Make(0,0,0);
-        
-        // Don't rotate
-        rotation = 0;
-        
-        // Scale to original size
-        scale = GLKVector2Make(1,1);
-        
-        self.effect = [[GLKBaseEffect alloc] init];
-         */
         [self setup3DShape];
     }
     return self;
-}
-
--(int)numVertices
-{
-    return 0;
 }
 
 - (GLKVector3 *)vertices
@@ -127,10 +43,13 @@ const GLubyte Indices[] = {
 
 -(void)renderInScene:(DSScene *)scene
 {
+    /*
     [self.effect prepareToDraw];
     
-    glBindVertexArrayOES(_vertexArray);
+    glBindVertexArrayOES(self.vertexArray);
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
+    //glDrawElements(GL_TRIANGLES, (sizeof(self.vertices3D)/sizeof(GLubyte)), GL_UNSIGNED_BYTE, 0);
+     */
 }
 
 //we can store color data individually on each vertex and GL will extrapolate the colors inbetween
@@ -157,7 +76,7 @@ const GLubyte Indices[] = {
      nil];
      
      NSError * error;
-    GLKTextureInfo * info = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];;//[GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
+    GLKTextureInfo * info = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];
      if (info == nil) {
      NSLog(@"Error loading file: %@", [error localizedDescription]);
      }
@@ -265,24 +184,9 @@ const GLubyte Indices[] = {
 
 - (void)setup3DShape
 {
+    /*
     NSLog(@"***** setUp3DShape");
     self.effect = [[GLKBaseEffect alloc] init];
-    
-    /*
-    NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithBool:YES],
-                              GLKTextureLoaderOriginBottomLeft,
-                              nil];
-    
-    NSError * error;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"tile_floor" ofType:@"png"];
-    GLKTextureInfo * info = [GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
-    if (info == nil) {
-        NSLog(@"Error loading file: %@", [error localizedDescription]);
-    }
-    self.effect.texture2d0.name = info.name;
-    self.effect.texture2d0.enabled = true;
-    */
     
     // generate vertex arrays
     glGenVertexArraysOES(1, &_vertexArray);
@@ -291,7 +195,7 @@ const GLubyte Indices[] = {
     // generate vertex buffers
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW); //need to turn this Vertices data into NSMutableData
     
     glGenBuffers(1, &_indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
@@ -307,7 +211,45 @@ const GLubyte Indices[] = {
     
     // New line
     glBindVertexArrayOES(0);
-    
+    */
 }
 
+-(int)numVertices
+{
+    return 24;
+}
+
+-(void)updateVertices
+{
+    // Front
+    self.vertices3D[0] = GLKVector3Make( 1.0, -1.0, 1.0);
+    self.vertices3D[1] = GLKVector3Make( 1.0,  1.0, 1.0);
+    self.vertices3D[2] = GLKVector3Make(-1.0,  1.0, 1.0);
+    self.vertices3D[3] = GLKVector3Make(1.0, -1.0, 1.0);
+    // Back
+    self.vertices3D[4] = GLKVector3Make( 1.0, 1.0, -1.0);
+    self.vertices3D[5] = GLKVector3Make( -1.0,  -1.0, -1.0);
+    self.vertices3D[6] = GLKVector3Make(1.0,  -1.0, -1.0);
+    self.vertices3D[7] = GLKVector3Make(-1.0, 1.0, -1.0);
+    // Left
+    self.vertices3D[8] = GLKVector3Make( -1.0, -1.0, 1.0);
+    self.vertices3D[9] = GLKVector3Make( -1.0,  1.0, 1.0);
+    self.vertices3D[10] = GLKVector3Make(-1.0,  1.0, -1.0);
+    self.vertices3D[11] = GLKVector3Make(-1.0, -1.0, -1.0);
+    // Right
+    self.vertices3D[12] = GLKVector3Make( 1.0, -1.0, -1.0);
+    self.vertices3D[13] = GLKVector3Make( 1.0,  1.0, -1.0);
+    self.vertices3D[14] = GLKVector3Make(1.0,  1.0, 1.0);
+    self.vertices3D[15] = GLKVector3Make(1.0, -1.0, 1.0);
+    // Top
+    self.vertices3D[16] = GLKVector3Make( 1.0, 1.0, 1.0);
+    self.vertices3D[17] = GLKVector3Make( 1.0,  1.0, -1.0);
+    self.vertices3D[18] = GLKVector3Make(-1.0,  1.0, -1.0);
+    self.vertices3D[19] = GLKVector3Make(-1.0, 1.0, 1.0);
+    // Bottom
+    self.vertices3D[20] = GLKVector3Make( 1.0, -1.0, -1.0);
+    self.vertices3D[21] = GLKVector3Make( 1.0,  -1.0, 1.0);
+    self.vertices3D[22] = GLKVector3Make(-1.0,  -1.0, 1.0);
+    self.vertices3D[23] = GLKVector3Make(-1.0, -1.0, -1.0);
+}
 @end
