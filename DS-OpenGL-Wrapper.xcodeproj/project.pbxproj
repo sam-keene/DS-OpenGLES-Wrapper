@@ -44,6 +44,7 @@
 		27A8D6EE16E11A5C002EC721 /* DSSceneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6ED16E11A5B002EC721 /* DSSceneController.m */; };
 		27A8D6F116E11BDD002EC721 /* DSTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6F016E11BDC002EC721 /* DSTriangle.m */; };
 		27A8D6F316E11C59002EC721 /* DSRegularPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A8D6F216E11C58002EC721 /* DSRegularPolygon.m */; };
+		27F821A816E4FC8100F0BE40 /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F821A716E4FC8100F0BE40 /* tile_floor.png */; };
 		27F8D5F216E13F1F00480B43 /* DSCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F8D5F116E13F1F00480B43 /* DSCube.m */; };
 		27F8D5F616E145EC00480B43 /* CubeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F8D5F516E145EC00480B43 /* CubeScene.m */; };
 		27F8D88816E155E400480B43 /* DSShape3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F8D88716E155E300480B43 /* DSShape3D.m */; };
@@ -127,6 +128,7 @@
 		27A8D6EF16E11AF8002EC721 /* DSAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAnimation.h; sourceTree = "<group>"; };
 		27A8D6F016E11BDC002EC721 /* DSTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTriangle.m; sourceTree = "<group>"; };
 		27A8D6F216E11C58002EC721 /* DSRegularPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSRegularPolygon.m; sourceTree = "<group>"; };
+		27F821A716E4FC8100F0BE40 /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 		27F8D5F016E13F1F00480B43 /* DSCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCube.h; sourceTree = "<group>"; };
 		27F8D5F116E13F1F00480B43 /* DSCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCube.m; sourceTree = "<group>"; };
 		27F8D5F416E145EC00480B43 /* CubeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeScene.h; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		3C69617013FAC12600540465 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27F821A716E4FC8100F0BE40 /* tile_floor.png */,
 				3C69617113FAC12600540465 /* DS-OpenGL-Wrapper-Info.plist */,
 				3C69617213FAC12600540465 /* InfoPlist.strings */,
 				3C69617513FAC12600540465 /* main.m */,
@@ -399,6 +402,7 @@
 				27A8D6A916E10C8C002EC721 /* DSSceneViewController.xib in Resources */,
 				27A8D6AE16E10E54002EC721 /* TempViewController.xib in Resources */,
 				27A8D6EC16E1166F002EC721 /* MainViewController.xib in Resources */,
+				27F821A816E4FC8100F0BE40 /* tile_floor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
